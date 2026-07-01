@@ -1,0 +1,2604 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f2f5f7">
+  <title>서울 온 김에 연방 해야지</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f2f5f7;
+      --panel: #ffffff;
+      --line: #d9dee7;
+      --line-strong: #b9c2d0;
+      --ink: #172033;
+      --muted: #6b7280;
+      --faint: #f8fafc;
+      --soft: #eef2f6;
+      --input-bg: #ffffff;
+      --bg-top: #f8fbfb;
+      --teal: #0f766e;
+      --teal-soft: #e8f5f2;
+      --blue: #2563eb;
+      --blue-soft: #eef4ff;
+      --orange: #d97706;
+      --orange-soft: #fff7ed;
+      --orange-line: #fed7aa;
+      --orange-ink: #9a3412;
+      --success-soft: #ecfdf5;
+      --success-ink: #047857;
+      --danger-soft: #fff1f2;
+      --danger-line: #fecdd3;
+      --rose: #be123c;
+      --button-ink-on-color: #ffffff;
+      --row-line: #eef2f6;
+      --shadow: 0 18px 42px rgba(23, 32, 51, 0.08);
+      --shadow-soft: 0 10px 24px rgba(23, 32, 51, 0.06);
+    }
+
+    :root[data-theme="ocean"] {
+      --bg: #eef5fb;
+      --bg-top: #f7fbff;
+      --faint: #f5f9fc;
+      --soft: #e8eef5;
+      --teal: #1d4e89;
+      --teal-soft: #e5f0fb;
+      --blue: #0f766e;
+      --blue-soft: #e8f5f2;
+      --shadow: 0 18px 42px rgba(29, 78, 137, 0.1);
+      --shadow-soft: 0 10px 24px rgba(29, 78, 137, 0.07);
+    }
+
+    :root[data-theme="rose"] {
+      --bg: #f8f3f5;
+      --bg-top: #fff9fb;
+      --faint: #fcf7f9;
+      --soft: #f3e9ee;
+      --teal: #be123c;
+      --teal-soft: #fff1f2;
+      --blue: #2563eb;
+      --blue-soft: #eef4ff;
+      --shadow: 0 18px 42px rgba(190, 18, 60, 0.09);
+      --shadow-soft: 0 10px 24px rgba(190, 18, 60, 0.06);
+    }
+
+    :root[data-theme="graphite"] {
+      --bg: #f3f4f6;
+      --bg-top: #fafafa;
+      --faint: #f7f7f8;
+      --soft: #e9edf1;
+      --teal: #374151;
+      --teal-soft: #eef2f6;
+      --blue: #0f766e;
+      --blue-soft: #e8f5f2;
+      --shadow: 0 18px 42px rgba(55, 65, 81, 0.1);
+      --shadow-soft: 0 10px 24px rgba(55, 65, 81, 0.07);
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #101418;
+      --panel: #171d23;
+      --line: #303943;
+      --line-strong: #46515d;
+      --ink: #eef3f7;
+      --muted: #a6b1bd;
+      --faint: #1d252d;
+      --soft: #26313b;
+      --input-bg: #121820;
+      --bg-top: #151b21;
+      --teal: #5eead4;
+      --teal-soft: rgba(94, 234, 212, 0.14);
+      --blue: #93c5fd;
+      --blue-soft: rgba(147, 197, 253, 0.15);
+      --orange: #fdba74;
+      --orange-soft: rgba(253, 186, 116, 0.14);
+      --orange-line: rgba(253, 186, 116, 0.38);
+      --orange-ink: #fed7aa;
+      --success-soft: rgba(52, 211, 153, 0.15);
+      --success-ink: #6ee7b7;
+      --danger-soft: rgba(251, 113, 133, 0.16);
+      --danger-line: rgba(251, 113, 133, 0.42);
+      --rose: #fb7185;
+      --button-ink-on-color: #071014;
+      --row-line: #26313b;
+      --shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
+      --shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        linear-gradient(180deg, var(--bg-top) 0, var(--bg) 280px),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+    }
+
+    body {
+      padding: 18px;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    .app {
+      width: min(1280px, 100%);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .brand {
+      display: grid;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(26px, 5vw, 38px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .top-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .theme-picker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .theme-choice {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 34px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .theme-choice.active {
+      border-color: var(--teal);
+      color: var(--teal);
+      box-shadow: 0 0 0 3px var(--teal-soft);
+    }
+
+    .swatch {
+      width: 14px;
+      height: 14px;
+      border: 1px solid rgba(23, 32, 51, 0.18);
+      border-radius: 4px;
+      background: var(--swatch);
+      flex: 0 0 auto;
+    }
+
+    .saved-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .guide {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .guide-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: center;
+      min-height: 70px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .step-number {
+      display: inline-grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--teal-soft);
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .guide-step strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .guide-step > span:last-child > span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(420px, 0.95fr) minmax(480px, 1.2fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 56px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      background: var(--faint);
+    }
+
+    .panel-heading {
+      min-width: 0;
+    }
+
+    .panel-title {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .panel-description {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 10px 10px 0;
+    }
+
+    .tab {
+      min-height: 38px;
+      padding: 0 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px 8px 0 0;
+      background: var(--faint);
+      color: var(--muted);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .tab.active {
+      border-bottom-color: var(--panel);
+      background: var(--panel);
+      color: var(--teal);
+    }
+
+    .tab-panel {
+      display: none;
+      padding: 14px;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .section-intro {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--blue-soft);
+      color: #1e3a8a;
+    }
+
+    .section-intro strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .section-intro span,
+    .field-hint {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .form-grid.three {
+      grid-template-columns: 1fr 1fr 110px;
+    }
+
+    .span-2 {
+      grid-column: 1 / -1;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--input-bg);
+      color: var(--ink);
+      outline: none;
+      padding: 8px 10px;
+    }
+
+    textarea {
+      min-height: 280px;
+      resize: vertical;
+      font-family: Consolas, "Cascadia Mono", monospace;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(15, 118, 110, 0.72);
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.13);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .button {
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 8px;
+      background: var(--soft);
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .button:hover {
+      filter: brightness(0.98);
+    }
+
+    .button.primary {
+      background: var(--teal);
+      color: var(--button-ink-on-color);
+    }
+
+    .button.blue {
+      background: var(--blue);
+      color: var(--button-ink-on-color);
+    }
+
+    .button.warn {
+      background: var(--orange-soft);
+      color: var(--orange-ink);
+      border: 1px solid var(--orange-line);
+    }
+
+    .button.danger {
+      background: var(--danger-soft);
+      color: var(--rose);
+      border: 1px solid var(--danger-line);
+    }
+
+    .button:active {
+      transform: translateY(1px);
+    }
+
+    .mini-button {
+      min-height: 30px;
+      padding: 0 9px;
+      border-radius: 8px;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .mini-button.danger {
+      background: var(--danger-soft);
+      color: var(--rose);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 520px;
+      border-collapse: collapse;
+      background: var(--panel);
+    }
+
+    th,
+    td {
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 13px;
+    }
+
+    th {
+      background: var(--faint);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .settings {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+      background: var(--faint);
+    }
+
+    .check-field {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      padding-top: 18px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .check-field input {
+      width: 18px;
+      min-height: 18px;
+      accent-color: var(--teal);
+    }
+
+    .result-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .summary {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .result-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .results {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+    }
+
+    .empty {
+      padding: 22px;
+      border: 1px dashed var(--line-strong);
+      border-radius: 8px;
+      background: var(--faint);
+      color: var(--muted);
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .candidate {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      overflow: hidden;
+    }
+
+    .candidate-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      background: var(--faint);
+    }
+
+    .candidate-title {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+      font-weight: 900;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 8px;
+      border-radius: 8px;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .pill.ok {
+      background: var(--success-soft);
+      color: var(--success-ink);
+    }
+
+    .pill.warn {
+      background: var(--orange-soft);
+      color: var(--orange-ink);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 0;
+      padding: 8px 12px 12px;
+    }
+
+    .stop {
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--row-line);
+    }
+
+    .stop:last-child {
+      border-bottom: 0;
+    }
+
+    .time {
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .theme {
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .store {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .transfer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      margin: 0 0 0 96px;
+      padding: 4px 0 8px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .notice {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--orange-line);
+      border-radius: 8px;
+      background: var(--orange-soft);
+      color: var(--orange-ink);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .status-line {
+      min-height: 22px;
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .error {
+      margin-bottom: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--danger-line);
+      border-radius: 8px;
+      background: var(--danger-soft);
+      color: var(--rose);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    @media (max-width: 980px) {
+      body {
+        padding: 10px;
+      }
+
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+
+      .guide {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .settings {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .top-actions {
+        justify-content: flex-start;
+      }
+
+      .guide {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid,
+      .form-grid.three,
+      .settings {
+        grid-template-columns: 1fr;
+      }
+
+      .check-field {
+        padding-top: 0;
+      }
+
+      .result-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .result-buttons {
+        justify-content: stretch;
+      }
+
+      .result-buttons .button {
+        flex: 1 1 150px;
+      }
+
+      .stop {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .transfer {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <p class="eyebrow">방탈출 연방 시간표</p>
+        <h1>서울 온 김에 연방 해야지</h1>
+        <p class="lead">매장, 테마 시간, 이동시간을 넣으면 겹치지 않는 연방 후보를 자동으로 정리합니다.</p>
+      </div>
+      <div class="top-actions">
+        <div class="theme-picker" aria-label="색 테마">
+          <button class="theme-choice active" data-color-theme="default" type="button" aria-pressed="true">
+            <span class="swatch" style="--swatch: #0f766e;"></span>
+            기본
+          </button>
+          <button class="theme-choice" data-color-theme="ocean" type="button" aria-pressed="false">
+            <span class="swatch" style="--swatch: #1d4e89;"></span>
+            오션
+          </button>
+          <button class="theme-choice" data-color-theme="rose" type="button" aria-pressed="false">
+            <span class="swatch" style="--swatch: #be123c;"></span>
+            로즈
+          </button>
+          <button class="theme-choice" data-color-theme="graphite" type="button" aria-pressed="false">
+            <span class="swatch" style="--swatch: #374151;"></span>
+            차분
+          </button>
+          <button class="theme-choice" data-color-theme="dark" type="button" aria-pressed="false">
+            <span class="swatch" style="--swatch: #101418;"></span>
+            다크
+          </button>
+        </div>
+        <span class="saved-badge" id="saveState">자동 저장됨</span>
+      </div>
+    </header>
+
+    <section class="guide" aria-label="사용 순서">
+      <div class="guide-step">
+        <span class="step-number">1</span>
+        <span><strong>매장 등록</strong><span>이름과 지역을 먼저 넣기</span></span>
+      </div>
+      <div class="guide-step">
+        <span class="step-number">2</span>
+        <span><strong>테마 선택</strong><span>하고 싶은 테마만 체크</span></span>
+      </div>
+      <div class="guide-step">
+        <span class="step-number">3</span>
+        <span><strong>이동시간 확인</strong><span>매장 사이 이동분 입력</span></span>
+      </div>
+      <div class="guide-step">
+        <span class="step-number">4</span>
+        <span><strong>시간표 생성</strong><span>후보를 보고 엑셀 저장</span></span>
+      </div>
+    </section>
+
+    <div class="workspace">
+      <section class="panel">
+        <div class="panel-header">
+          <div class="panel-heading">
+            <h2 class="panel-title">입력</h2>
+            <p class="panel-description">샘플을 고쳐 쓰거나 새 매장과 테마를 추가하세요.</p>
+          </div>
+          <button class="button warn" id="resetButton" type="button">샘플 복원</button>
+        </div>
+
+        <nav class="tabs" aria-label="입력 탭">
+          <button class="tab active" data-tab="stores" type="button">1 매장</button>
+          <button class="tab" data-tab="themes" type="button">2 테마</button>
+          <button class="tab" data-tab="travel" type="button">3 이동시간</button>
+          <button class="tab" data-tab="json" type="button">백업</button>
+        </nav>
+
+        <div class="tab-panel active" id="tab-stores">
+          <div class="section-intro">
+            <div>
+              <strong>방문할 수 있는 매장을 등록하세요.</strong>
+              <span>주소는 이동시간 자동 계산을 다시 쓸 때 필요하고, 지역은 결과표에서 구분용으로 보입니다.</span>
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="field">
+              <label for="storeName">매장명</label>
+              <input id="storeName" autocomplete="off" placeholder="예: 홍대 1호점">
+            </div>
+            <div class="field">
+              <label for="storeArea">지역</label>
+              <input id="storeArea" autocomplete="off" placeholder="예: 홍대">
+            </div>
+            <div class="field span-2">
+              <label for="storeAddress">주소</label>
+              <input id="storeAddress" autocomplete="off" placeholder="예: 서울 마포구 양화로 123">
+              <span class="field-hint">주소가 없어도 수동 이동시간으로 시간표를 만들 수 있습니다.</span>
+            </div>
+          </div>
+          <div class="button-row">
+            <button class="button primary" id="addStoreButton" type="button">매장 추가</button>
+            <button class="button" id="cancelStoreEditButton" type="button" hidden>수정 취소</button>
+          </div>
+          <div class="table-wrap" style="margin-top: 12px;">
+            <table>
+              <thead>
+                <tr>
+                  <th>매장</th>
+                  <th>지역</th>
+                  <th>주소</th>
+                  <th>테마 수</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="storeRows"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-themes">
+          <div class="section-intro">
+            <div>
+              <strong>테마별 소요시간과 시작시간을 넣으세요.</strong>
+              <span>쉼표로 여러 시작시간을 한 번에 입력할 수 있고, 체크된 테마만 시간표 후보에 들어갑니다.</span>
+            </div>
+          </div>
+          <div class="form-grid three">
+            <div class="field">
+              <label for="themeStore">매장</label>
+              <select id="themeStore"></select>
+            </div>
+            <div class="field">
+              <label for="themeName">테마명</label>
+              <input id="themeName" autocomplete="off" placeholder="예: 사라진 열쇠">
+            </div>
+            <div class="field">
+              <label for="themeDuration">소요분</label>
+              <input id="themeDuration" inputmode="numeric" value="60">
+            </div>
+          </div>
+          <div class="field">
+            <label for="themeSlots">시작시간</label>
+            <input id="themeSlots" autocomplete="off" placeholder="예: 10:00, 11:30, 13:00, 14:30">
+            <span class="field-hint">24시 이후 일정은 25:10처럼 입력할 수 있습니다.</span>
+          </div>
+          <div class="button-row" style="margin-top: 12px;">
+            <button class="button primary" id="addThemeButton" type="button">테마 추가</button>
+            <button class="button" id="cancelThemeEditButton" type="button" hidden>수정 취소</button>
+            <button class="button" id="selectAllThemesButton" type="button">테마 전체 선택</button>
+            <button class="button" id="clearThemesButton" type="button">테마 선택 해제</button>
+          </div>
+          <div class="table-wrap" style="margin-top: 12px;">
+            <table>
+              <thead>
+                <tr>
+                  <th>선택</th>
+                  <th>테마</th>
+                  <th>매장</th>
+                  <th>소요</th>
+                  <th>시작시간</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="themeRows"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-travel">
+          <div class="section-intro">
+            <div>
+              <strong>매장 사이 이동시간을 등록하세요.</strong>
+              <span>없는 구간은 자동으로 20분 이동으로 계산합니다.</span>
+            </div>
+          </div>
+          <div class="form-grid three">
+            <div class="field">
+              <label for="travelFrom">출발</label>
+              <select id="travelFrom"></select>
+            </div>
+            <div class="field">
+              <label for="travelTo">도착</label>
+              <select id="travelTo"></select>
+            </div>
+            <div class="field">
+              <label for="travelMinutes">분</label>
+              <input id="travelMinutes" inputmode="numeric" value="15">
+            </div>
+          </div>
+          <label class="check-field" style="padding-top: 0;">
+            <input id="travelBothWays" type="checkbox" checked>
+            왕복 동일
+          </label>
+          <div class="button-row" style="margin-top: 10px;">
+            <button class="button primary" id="addTravelButton" type="button">이동시간 추가</button>
+            <button class="button" id="cancelTravelEditButton" type="button" hidden>수정 취소</button>
+          </div>
+
+          <div class="notice">
+            주소 자동 계산은 카카오 REST API 키가 필요합니다. 키는 이 브라우저에만 저장됩니다.
+          </div>
+          <div class="form-grid" style="margin-top: 12px;">
+            <div class="field span-2">
+              <label for="kakaoRestKey">카카오 REST API 키</label>
+              <input id="kakaoRestKey" type="password" autocomplete="off" placeholder="KakaoAK 없이 키 값만 입력">
+            </div>
+          </div>
+          <div class="button-row">
+            <button class="button blue" id="autoTravelButton" type="button">주소로 전체 이동시간 계산</button>
+          </div>
+          <div class="status-line" id="autoTravelStatus"></div>
+
+          <div class="table-wrap" style="margin-top: 12px;">
+            <table>
+              <thead>
+                <tr>
+                  <th>출발</th>
+                  <th>도착</th>
+                  <th>이동</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="travelRows"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-json">
+          <div class="section-intro">
+            <div>
+              <strong>데이터를 백업하거나 복원하세요.</strong>
+              <span>브라우저 저장소에 있는 매장, 테마, 이동시간을 JSON 파일로 보관할 수 있습니다.</span>
+            </div>
+          </div>
+          <div id="jsonError"></div>
+          <textarea id="jsonEditor" spellcheck="false"></textarea>
+          <div class="button-row" style="margin-top: 10px;">
+            <button class="button primary" id="applyJsonButton" type="button">JSON 적용</button>
+            <button class="button blue" id="refreshJsonButton" type="button">현재 데이터 보기</button>
+            <button class="button" id="exportBackupButton" type="button">백업 파일 저장</button>
+            <button class="button" id="importBackupButton" type="button">백업 파일 불러오기</button>
+            <input id="backupFileInput" type="file" accept="application/json,.json" hidden>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div class="panel-heading">
+            <h2 class="panel-title">시간표 만들기</h2>
+            <p class="panel-description">대기시간이 짧은 효율 좋은 후보가 먼저 보입니다.</p>
+          </div>
+          <span class="saved-badge" id="dataCount">0개 테마</span>
+        </div>
+
+        <div class="settings">
+          <div class="field">
+            <label for="dayStart">시작</label>
+            <input id="dayStart" value="10:00" inputmode="numeric">
+          </div>
+          <div class="field">
+            <label for="dayEnd">종료</label>
+            <input id="dayEnd" value="24:00" inputmode="numeric">
+          </div>
+          <div class="field">
+            <label for="maxResults">후보 수</label>
+            <input id="maxResults" value="12" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <div class="summary" id="summary">효율순으로 후보를 생성해보세요.</div>
+          <div class="result-buttons">
+            <button class="button blue" id="exportResultsButton" type="button">엑셀 내보내기</button>
+            <button class="button primary" id="generateButton" type="button">시간표 생성</button>
+          </div>
+        </div>
+
+        <div class="results" id="results">
+          <div class="empty">샘플 데이터가 준비되어 있습니다. 시간표 생성을 누르면 후보가 표시됩니다.</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const STORAGE_KEY = "escape-chain-scheduler-v1";
+      const KAKAO_KEY_STORAGE = "escape-chain-kakao-rest-key-v1";
+      const COLOR_THEME_STORAGE = "escape-chain-color-theme-v1";
+      const SEARCH_LIMIT = 30000;
+      const COLOR_THEMES = {
+        default: "#f2f5f7",
+        ocean: "#eef5fb",
+        rose: "#f8f3f5",
+        graphite: "#f3f4f6",
+        dark: "#101418"
+      };
+
+      const sampleData = {
+        settings: {
+          dayStart: "10:00",
+          dayEnd: "24:00",
+          maxThemes: 10,
+          minBreak: 10,
+          defaultTravel: 20,
+          maxResults: 12,
+          allowSameTheme: false,
+          selectedThemeIds: ["lost-key", "clock-room", "blue-door", "night-train"]
+        },
+        stores: [
+          { id: "hongdae-a", name: "홍대 A매장", area: "홍대", address: "" },
+          { id: "hongdae-b", name: "홍대 B매장", area: "홍대", address: "" },
+          { id: "sinchon-a", name: "신촌 A매장", area: "신촌", address: "" }
+        ],
+        themes: [
+          { id: "lost-key", storeId: "hongdae-a", name: "사라진 열쇠", duration: 60, slots: ["10:00", "12:00", "14:00", "16:00", "18:00"] },
+          { id: "clock-room", storeId: "hongdae-a", name: "시계방", duration: 70, slots: ["11:10", "13:10", "15:10", "17:10", "19:10"] },
+          { id: "blue-door", storeId: "hongdae-b", name: "푸른 문", duration: 60, slots: ["10:40", "12:20", "14:40", "17:00", "19:20"] },
+          { id: "night-train", storeId: "sinchon-a", name: "야간열차", duration: 75, slots: ["11:30", "14:00", "16:30", "19:00", "21:30"] }
+        ],
+        travelTimes: [
+          { fromStoreId: "hongdae-a", toStoreId: "hongdae-b", minutes: 8 },
+          { fromStoreId: "hongdae-b", toStoreId: "hongdae-a", minutes: 8 },
+          { fromStoreId: "hongdae-a", toStoreId: "sinchon-a", minutes: 18 },
+          { fromStoreId: "sinchon-a", toStoreId: "hongdae-a", minutes: 18 },
+          { fromStoreId: "hongdae-b", toStoreId: "sinchon-a", minutes: 15 },
+          { fromStoreId: "sinchon-a", toStoreId: "hongdae-b", minutes: 15 }
+        ]
+      };
+
+      let data = loadData();
+      let editingStoreId = null;
+      let editingThemeId = null;
+      let editingTravelPair = null;
+      let lastGeneratedCandidates = [];
+
+      const els = {
+        saveState: document.querySelector("#saveState"),
+        dataCount: document.querySelector("#dataCount"),
+        storeName: document.querySelector("#storeName"),
+        storeArea: document.querySelector("#storeArea"),
+        storeAddress: document.querySelector("#storeAddress"),
+        storeRows: document.querySelector("#storeRows"),
+        addStoreButton: document.querySelector("#addStoreButton"),
+        cancelStoreEditButton: document.querySelector("#cancelStoreEditButton"),
+        themeStore: document.querySelector("#themeStore"),
+        themeName: document.querySelector("#themeName"),
+        themeDuration: document.querySelector("#themeDuration"),
+        themeSlots: document.querySelector("#themeSlots"),
+        themeRows: document.querySelector("#themeRows"),
+        addThemeButton: document.querySelector("#addThemeButton"),
+        cancelThemeEditButton: document.querySelector("#cancelThemeEditButton"),
+        selectAllThemesButton: document.querySelector("#selectAllThemesButton"),
+        clearThemesButton: document.querySelector("#clearThemesButton"),
+        travelFrom: document.querySelector("#travelFrom"),
+        travelTo: document.querySelector("#travelTo"),
+        travelMinutes: document.querySelector("#travelMinutes"),
+        travelBothWays: document.querySelector("#travelBothWays"),
+        travelRows: document.querySelector("#travelRows"),
+        addTravelButton: document.querySelector("#addTravelButton"),
+        cancelTravelEditButton: document.querySelector("#cancelTravelEditButton"),
+        kakaoRestKey: document.querySelector("#kakaoRestKey"),
+        autoTravelButton: document.querySelector("#autoTravelButton"),
+        autoTravelStatus: document.querySelector("#autoTravelStatus"),
+        jsonEditor: document.querySelector("#jsonEditor"),
+        jsonError: document.querySelector("#jsonError"),
+        applyJsonButton: document.querySelector("#applyJsonButton"),
+        refreshJsonButton: document.querySelector("#refreshJsonButton"),
+        exportBackupButton: document.querySelector("#exportBackupButton"),
+        importBackupButton: document.querySelector("#importBackupButton"),
+        backupFileInput: document.querySelector("#backupFileInput"),
+        resetButton: document.querySelector("#resetButton"),
+        themeButtons: Array.from(document.querySelectorAll("[data-color-theme]")),
+        themeMeta: document.querySelector('meta[name="theme-color"]'),
+        dayStart: document.querySelector("#dayStart"),
+        dayEnd: document.querySelector("#dayEnd"),
+        maxResults: document.querySelector("#maxResults"),
+        exportResultsButton: document.querySelector("#exportResultsButton"),
+        generateButton: document.querySelector("#generateButton"),
+        summary: document.querySelector("#summary"),
+        results: document.querySelector("#results")
+      };
+
+      function clone(value) {
+        return JSON.parse(JSON.stringify(value));
+      }
+
+      function loadData() {
+        try {
+          const stored = localStorage.getItem(STORAGE_KEY);
+          if (!stored) {
+            return normalizeData(clone(sampleData));
+          }
+
+          return normalizeData(JSON.parse(stored));
+        } catch {
+          return clone(sampleData);
+        }
+      }
+
+      function normalizeData(raw) {
+        const normalized = {
+          settings: { ...sampleData.settings, ...(raw.settings || {}) },
+          stores: Array.isArray(raw.stores) ? raw.stores : [],
+          themes: Array.isArray(raw.themes) ? raw.themes : [],
+          travelTimes: Array.isArray(raw.travelTimes) ? raw.travelTimes : []
+        };
+
+        normalized.stores = normalized.stores
+          .filter((store) => store && store.id && store.name)
+          .map((store) => ({
+            id: String(store.id),
+            name: String(store.name),
+            area: String(store.area || ""),
+            address: String(store.address || ""),
+            x: store.x == null ? null : Number(store.x),
+            y: store.y == null ? null : Number(store.y),
+            geocodeAddress: String(store.geocodeAddress || "")
+          }));
+
+        const storeIds = new Set(normalized.stores.map((store) => store.id));
+
+        normalized.themes = normalized.themes
+          .filter((theme) => theme && theme.id && storeIds.has(theme.storeId))
+          .map((theme) => ({
+            id: String(theme.id),
+            storeId: String(theme.storeId),
+            name: String(theme.name || "무제 테마"),
+            duration: toPositiveInt(theme.duration, 60),
+            slots: normalizeSlots(theme.slots || [])
+          }));
+
+        const themeIds = new Set(normalized.themes.map((theme) => theme.id));
+        if (Array.isArray(normalized.settings.selectedThemeIds)) {
+          normalized.settings.selectedThemeIds = normalized.settings.selectedThemeIds
+            .map(String)
+            .filter((id) => themeIds.has(id));
+        } else {
+          normalized.settings.selectedThemeIds = normalized.themes.map((theme) => theme.id);
+        }
+
+        normalized.travelTimes = normalized.travelTimes
+          .filter((item) => item && storeIds.has(item.fromStoreId) && storeIds.has(item.toStoreId) && item.fromStoreId !== item.toStoreId)
+          .map((item) => ({
+            fromStoreId: String(item.fromStoreId),
+            toStoreId: String(item.toStoreId),
+            minutes: toNonNegativeInt(item.minutes, 0)
+          }));
+
+        return normalized;
+      }
+
+      function persistData() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        els.saveState.textContent = "자동 저장됨";
+        window.clearTimeout(persistData.timer);
+        persistData.timer = window.setTimeout(() => {
+          els.saveState.textContent = "저장 완료";
+        }, 650);
+      }
+
+      function saveData() {
+        data.settings = readSettings();
+        persistData();
+      }
+
+      function makeId(prefix) {
+        const seed = Math.random().toString(36).slice(2, 8);
+        return `${prefix}-${Date.now().toString(36)}-${seed}`;
+      }
+
+      function parseTime(value) {
+        const text = String(value || "").trim();
+        const match = text.match(/^(\d{1,2}):([0-5]\d)$/);
+        if (!match) {
+          return null;
+        }
+
+        const hour = Number(match[1]);
+        const minute = Number(match[2]);
+        if (hour < 0 || hour > 29) {
+          return null;
+        }
+
+        return hour * 60 + minute;
+      }
+
+      function formatTime(minutes) {
+        const hour = Math.floor(minutes / 60);
+        const minute = minutes % 60;
+        return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
+      }
+
+      function normalizeSlots(slots) {
+        const list = Array.isArray(slots) ? slots : String(slots).split(",");
+        const unique = new Set();
+
+        for (const slot of list) {
+          const text = String(slot).trim();
+          const parsed = parseTime(text);
+          if (parsed !== null) {
+            unique.add(formatTime(parsed));
+          }
+        }
+
+        return Array.from(unique).sort((a, b) => parseTime(a) - parseTime(b));
+      }
+
+      function toPositiveInt(value, fallback) {
+        const number = Number.parseInt(value, 10);
+        return Number.isFinite(number) && number > 0 ? number : fallback;
+      }
+
+      function toNonNegativeInt(value, fallback) {
+        const number = Number.parseInt(value, 10);
+        return Number.isFinite(number) && number >= 0 ? number : fallback;
+      }
+
+      function storeName(storeId) {
+        const store = data.stores.find((item) => item.id === storeId);
+        return store ? store.name : "삭제된 매장";
+      }
+
+      function storeArea(storeId) {
+        const store = data.stores.find((item) => item.id === storeId);
+        return store ? store.area : "";
+      }
+
+      function applyColorTheme(themeName, shouldPersist = true) {
+        const theme = Object.prototype.hasOwnProperty.call(COLOR_THEMES, themeName) ? themeName : "default";
+        if (document.documentElement) {
+          document.documentElement.dataset.theme = theme;
+        }
+        if (els.themeMeta) {
+          els.themeMeta.setAttribute("content", COLOR_THEMES[theme]);
+        }
+        els.themeButtons.forEach((button) => {
+          const active = button.dataset.colorTheme === theme;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
+        if (shouldPersist) {
+          localStorage.setItem(COLOR_THEME_STORAGE, theme);
+        }
+      }
+
+      function render() {
+        renderSettings();
+        els.kakaoRestKey.value = localStorage.getItem(KAKAO_KEY_STORAGE) || "";
+        renderStoreOptions();
+        renderEditState();
+        renderStores();
+        renderThemes();
+        renderTravel();
+        refreshJsonEditor();
+
+        const slotCount = data.themes.reduce((sum, theme) => sum + theme.slots.length, 0);
+        const selectedCount = getSelectedThemeIds().size;
+        els.dataCount.textContent = `${data.themes.length}개 테마 중 ${selectedCount}개 선택 · ${slotCount}개 시간`;
+      }
+
+      function renderSettings() {
+        const settings = { ...sampleData.settings, ...data.settings };
+        els.dayStart.value = settings.dayStart;
+        els.dayEnd.value = settings.dayEnd;
+        els.maxResults.value = settings.maxResults;
+      }
+
+      function readSettings() {
+        return {
+          dayStart: els.dayStart.value.trim() || sampleData.settings.dayStart,
+          dayEnd: els.dayEnd.value.trim() || sampleData.settings.dayEnd,
+          maxThemes: sampleData.settings.maxThemes,
+          minBreak: sampleData.settings.minBreak,
+          defaultTravel: sampleData.settings.defaultTravel,
+          maxResults: toPositiveInt(els.maxResults.value, sampleData.settings.maxResults),
+          allowSameTheme: sampleData.settings.allowSameTheme,
+          selectedThemeIds: Array.from(getSelectedThemeIds())
+        };
+      }
+
+      function getSelectedThemeIds() {
+        const allThemeIds = new Set(data.themes.map((theme) => theme.id));
+        const raw = Array.isArray(data.settings.selectedThemeIds)
+          ? data.settings.selectedThemeIds
+          : data.themes.map((theme) => theme.id);
+        const selected = raw.map(String).filter((id) => allThemeIds.has(id));
+        return new Set(selected);
+      }
+
+      function setSelectedThemeIds(ids) {
+        const allThemeIds = new Set(data.themes.map((theme) => theme.id));
+        data.settings.selectedThemeIds = ids.filter((id) => allThemeIds.has(id));
+      }
+
+      function renderStoreOptions() {
+        const selectedThemeStore = els.themeStore.value;
+        const selectedTravelFrom = els.travelFrom.value;
+        const selectedTravelTo = els.travelTo.value;
+        const options = data.stores.map((store) => `<option value="${escapeHtml(store.id)}">${escapeHtml(store.name)}</option>`).join("");
+        els.themeStore.innerHTML = options;
+        els.travelFrom.innerHTML = options;
+        els.travelTo.innerHTML = options;
+        if (data.stores.some((store) => store.id === selectedThemeStore)) {
+          els.themeStore.value = selectedThemeStore;
+        }
+        if (data.stores.some((store) => store.id === selectedTravelFrom)) {
+          els.travelFrom.value = selectedTravelFrom;
+        }
+        if (data.stores.some((store) => store.id === selectedTravelTo)) {
+          els.travelTo.value = selectedTravelTo;
+        }
+      }
+
+      function renderStores() {
+        if (data.stores.length === 0) {
+          els.storeRows.innerHTML = `<tr><td colspan="5">먼저 방문할 매장을 추가하세요.</td></tr>`;
+          return;
+        }
+
+        els.storeRows.innerHTML = data.stores.map((store) => {
+          const count = data.themes.filter((theme) => theme.storeId === store.id).length;
+          return `
+            <tr>
+              <td>${escapeHtml(store.name)}</td>
+              <td>${escapeHtml(store.area || "-")}</td>
+              <td>${escapeHtml(store.address || "-")}</td>
+              <td>${count}</td>
+              <td>
+                <button class="mini-button" data-edit-store="${escapeHtml(store.id)}" type="button">수정</button>
+                <button class="mini-button danger" data-delete-store="${escapeHtml(store.id)}" type="button">삭제</button>
+              </td>
+            </tr>
+          `;
+        }).join("");
+      }
+
+      function renderThemes() {
+        if (data.themes.length === 0) {
+          els.themeRows.innerHTML = `<tr><td colspan="6">매장을 고른 뒤 테마와 시작시간을 추가하세요.</td></tr>`;
+          return;
+        }
+
+        const selectedThemeIds = getSelectedThemeIds();
+        els.themeRows.innerHTML = data.themes.map((theme) => `
+          <tr>
+            <td><input type="checkbox" data-select-theme="${escapeHtml(theme.id)}" ${selectedThemeIds.has(theme.id) ? "checked" : ""} aria-label="${escapeHtml(theme.name)} 선택"></td>
+            <td>${escapeHtml(theme.name)}</td>
+            <td>${escapeHtml(storeName(theme.storeId))}</td>
+            <td>${theme.duration}분</td>
+            <td>${theme.slots.map(escapeHtml).join(", ")}</td>
+            <td>
+              <button class="mini-button" data-edit-theme="${escapeHtml(theme.id)}" type="button">수정</button>
+              <button class="mini-button danger" data-delete-theme="${escapeHtml(theme.id)}" type="button">삭제</button>
+            </td>
+          </tr>
+        `).join("");
+      }
+
+      function renderTravel() {
+        if (data.travelTimes.length === 0) {
+          els.travelRows.innerHTML = `<tr><td colspan="4">매장 사이 이동시간이 없으면 자동으로 20분 이동으로 계산합니다.</td></tr>`;
+          return;
+        }
+
+        const sorted = [...data.travelTimes].sort((a, b) => {
+          const from = storeName(a.fromStoreId).localeCompare(storeName(b.fromStoreId), "ko-KR");
+          if (from !== 0) {
+            return from;
+          }
+          return storeName(a.toStoreId).localeCompare(storeName(b.toStoreId), "ko-KR");
+        });
+
+        els.travelRows.innerHTML = sorted.map((item) => `
+          <tr>
+            <td>${escapeHtml(storeName(item.fromStoreId))}</td>
+            <td>${escapeHtml(storeName(item.toStoreId))}</td>
+            <td>${item.minutes}분</td>
+            <td>
+              <button class="mini-button" data-edit-travel="${escapeHtml(item.fromStoreId)}|${escapeHtml(item.toStoreId)}" type="button">수정</button>
+              <button class="mini-button danger" data-delete-travel="${escapeHtml(item.fromStoreId)}|${escapeHtml(item.toStoreId)}" type="button">삭제</button>
+            </td>
+          </tr>
+        `).join("");
+      }
+
+      function refreshJsonEditor() {
+        els.jsonEditor.value = JSON.stringify(data, null, 2);
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function excelText(value) {
+        return escapeHtml(value == null ? "" : value);
+      }
+
+      function excelFileName() {
+        const today = new Date().toISOString().slice(0, 10);
+        return `escape-scheduler-results-${today}.xlsx`;
+      }
+
+      function downloadBlob(blob, fileName) {
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(url), 500);
+      }
+
+      function xmlText(value) {
+        return String(value == null ? "" : value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&apos;");
+      }
+
+      function columnName(index) {
+        let name = "";
+        let current = index;
+        while (current > 0) {
+          const mod = (current - 1) % 26;
+          name = String.fromCharCode(65 + mod) + name;
+          current = Math.floor((current - mod) / 26);
+        }
+        return name;
+      }
+
+      function crc32(bytes) {
+        if (!crc32.table) {
+          crc32.table = Array.from({ length: 256 }, (_, index) => {
+            let value = index;
+            for (let bit = 0; bit < 8; bit += 1) {
+              value = value & 1 ? 0xedb88320 ^ (value >>> 1) : value >>> 1;
+            }
+            return value >>> 0;
+          });
+        }
+
+        let crc = 0xffffffff;
+        for (const byte of bytes) {
+          crc = crc32.table[(crc ^ byte) & 0xff] ^ (crc >>> 8);
+        }
+        return (crc ^ 0xffffffff) >>> 0;
+      }
+
+      function pushUint16(target, value) {
+        target.push(value & 0xff, (value >>> 8) & 0xff);
+      }
+
+      function pushUint32(target, value) {
+        target.push(value & 0xff, (value >>> 8) & 0xff, (value >>> 16) & 0xff, (value >>> 24) & 0xff);
+      }
+
+      function dosDateTime(date = new Date()) {
+        const time = (date.getHours() << 11) | (date.getMinutes() << 5) | Math.floor(date.getSeconds() / 2);
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = Math.max(1980, date.getFullYear()) - 1980;
+        return { time, date: (year << 9) | (month << 5) | day };
+      }
+
+      function makeZip(files) {
+        const encoder = new TextEncoder();
+        const chunks = [];
+        const centralDirectory = [];
+        let offset = 0;
+        const stamp = dosDateTime();
+
+        for (const file of files) {
+          const nameBytes = encoder.encode(file.name);
+          const bodyBytes = encoder.encode(file.content);
+          const crc = crc32(bodyBytes);
+          const local = [];
+          pushUint32(local, 0x04034b50);
+          pushUint16(local, 20);
+          pushUint16(local, 0x0800);
+          pushUint16(local, 0);
+          pushUint16(local, stamp.time);
+          pushUint16(local, stamp.date);
+          pushUint32(local, crc);
+          pushUint32(local, bodyBytes.length);
+          pushUint32(local, bodyBytes.length);
+          pushUint16(local, nameBytes.length);
+          pushUint16(local, 0);
+          local.push(...nameBytes);
+
+          chunks.push(new Uint8Array(local), bodyBytes);
+
+          const central = [];
+          pushUint32(central, 0x02014b50);
+          pushUint16(central, 20);
+          pushUint16(central, 20);
+          pushUint16(central, 0x0800);
+          pushUint16(central, 0);
+          pushUint16(central, stamp.time);
+          pushUint16(central, stamp.date);
+          pushUint32(central, crc);
+          pushUint32(central, bodyBytes.length);
+          pushUint32(central, bodyBytes.length);
+          pushUint16(central, nameBytes.length);
+          pushUint16(central, 0);
+          pushUint16(central, 0);
+          pushUint16(central, 0);
+          pushUint16(central, 0);
+          pushUint32(central, 0);
+          pushUint32(central, offset);
+          central.push(...nameBytes);
+          centralDirectory.push(new Uint8Array(central));
+
+          offset += local.length + bodyBytes.length;
+        }
+
+        const centralStart = offset;
+        const centralSize = centralDirectory.reduce((sum, chunk) => sum + chunk.length, 0);
+        chunks.push(...centralDirectory);
+
+        const end = [];
+        pushUint32(end, 0x06054b50);
+        pushUint16(end, 0);
+        pushUint16(end, 0);
+        pushUint16(end, files.length);
+        pushUint16(end, files.length);
+        pushUint32(end, centralSize);
+        pushUint32(end, centralStart);
+        pushUint16(end, 0);
+        chunks.push(new Uint8Array(end));
+
+        return new Blob(chunks, { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+      }
+
+      function createResultsWorkbookBlob(settings, candidates) {
+        const headers = [
+          "순서", "테마 시작", "테마 종료", "테마", "매장", "지역",
+          "플레이 분", "이전 이동 분", "이전 대기 분"
+        ];
+        const rows = [];
+        const merges = [];
+        let rowNumber = 1;
+
+        function addRow(cells = []) {
+          const xml = cells.map((cell, index) => {
+            const ref = `${columnName(index + 1)}${rowNumber}`;
+            const style = cell.style == null ? 0 : cell.style;
+            if (cell.number && cell.value !== "") {
+              return `<c r="${ref}" s="${style}"><v>${cell.value}</v></c>`;
+            }
+            return `<c r="${ref}" t="inlineStr" s="${style}"><is><t>${xmlText(cell.value)}</t></is></c>`;
+          }).join("");
+          rows.push(`<row r="${rowNumber}">${xml}</row>`);
+          rowNumber += 1;
+        }
+
+        function padCells(values, style, numberIndexes = []) {
+          return values.map((value, index) => ({
+            value,
+            style,
+            number: numberIndexes.includes(index) && value !== ""
+          }));
+        }
+
+        addRow(padCells(["서울 온 김에 연방 해야지 결과", new Date().toLocaleString("ko-KR")], 3));
+        addRow(padCells(["조건", `${settings.dayStart}-${settings.dayEnd}, 후보 ${settings.maxResults}개`], 3));
+        addRow([]);
+
+        candidates.forEach((candidate, candidateIndex) => {
+          const titleRow = rowNumber;
+          merges.push(`A${titleRow}:I${titleRow}`);
+          addRow(padCells([`후보 ${candidateIndex + 1}`, "", "", "", "", "", "", "", ""], 2));
+          addRow(padCells(headers, 1));
+
+          candidate.path.forEach((session, stopIndex) => {
+            const transfer = stopIndex > 0 ? candidate.transfers[stopIndex - 1] : null;
+            const values = [
+              stopIndex + 1,
+              formatTime(session.start),
+              formatTime(session.end),
+              session.themeName,
+              session.storeName,
+              session.storeArea || "",
+              session.duration,
+              transfer ? transfer.travel : "",
+              transfer ? transfer.wait : ""
+            ];
+            addRow(padCells(values, 4, [0, 6, 7, 8]));
+          });
+
+          addRow([]);
+        });
+
+        const mergeXml = merges.length > 0
+          ? `<mergeCells count="${merges.length}">${merges.map((ref) => `<mergeCell ref="${ref}"/>`).join("")}</mergeCells>`
+          : "";
+        const sheetXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
+  <cols>
+    <col min="1" max="1" width="7" customWidth="1"/>
+    <col min="2" max="3" width="13" customWidth="1"/>
+    <col min="4" max="4" width="26" customWidth="1"/>
+    <col min="5" max="5" width="24" customWidth="1"/>
+    <col min="6" max="6" width="16" customWidth="1"/>
+    <col min="7" max="9" width="14" customWidth="1"/>
+  </cols>
+  <sheetData>${rows.join("")}</sheetData>
+  ${mergeXml}
+</worksheet>`;
+        const stylesXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
+  <fonts count="3">
+    <font><sz val="11"/><name val="Malgun Gothic"/></font>
+    <font><b/><sz val="11"/><color rgb="FFFFFFFF"/><name val="Malgun Gothic"/></font>
+    <font><b/><sz val="11"/><color rgb="FF172033"/><name val="Malgun Gothic"/></font>
+  </fonts>
+  <fills count="5">
+    <fill><patternFill patternType="none"/></fill>
+    <fill><patternFill patternType="gray125"/></fill>
+    <fill><patternFill patternType="solid"><fgColor rgb="FF0F766E"/><bgColor indexed="64"/></patternFill></fill>
+    <fill><patternFill patternType="solid"><fgColor rgb="FF172033"/><bgColor indexed="64"/></patternFill></fill>
+    <fill><patternFill patternType="solid"><fgColor rgb="FFEEF2F6"/><bgColor indexed="64"/></patternFill></fill>
+  </fills>
+  <borders count="2">
+    <border><left/><right/><top/><bottom/><diagonal/></border>
+    <border><left style="thin"><color rgb="FFB9C2D0"/></left><right style="thin"><color rgb="FFB9C2D0"/></right><top style="thin"><color rgb="FFB9C2D0"/></top><bottom style="thin"><color rgb="FFB9C2D0"/></bottom><diagonal/></border>
+  </borders>
+  <cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>
+  <cellXfs count="5">
+    <xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/>
+    <xf numFmtId="0" fontId="1" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"><alignment horizontal="center"/></xf>
+    <xf numFmtId="0" fontId="1" fillId="3" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"/>
+    <xf numFmtId="0" fontId="2" fillId="4" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"/>
+    <xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyBorder="1"/>
+  </cellXfs>
+  <cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles>
+</styleSheet>`;
+
+        return makeZip([
+          {
+            name: "[Content_Types].xml",
+            content: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>`
+          },
+          {
+            name: "_rels/.rels",
+            content: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`
+          },
+          {
+            name: "xl/workbook.xml",
+            content: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="연방 후보" sheetId="1" r:id="rId1"/></sheets></workbook>`
+          },
+          {
+            name: "xl/_rels/workbook.xml.rels",
+            content: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`
+          },
+          { name: "xl/worksheets/sheet1.xml", content: sheetXml },
+          { name: "xl/styles.xml", content: stylesXml }
+        ]);
+      }
+
+      function exportResultsToExcel() {
+        if (lastGeneratedCandidates.length === 0) {
+          generateSchedules();
+        }
+
+        if (lastGeneratedCandidates.length === 0) {
+          els.summary.textContent = "내보낼 시간표 후보가 없습니다.";
+          return;
+        }
+
+        const settings = readSettings();
+        const blob = createResultsWorkbookBlob(settings, lastGeneratedCandidates);
+        downloadBlob(blob, excelFileName());
+      }
+
+      function showError(target, message) {
+        target.innerHTML = `<div class="error">${escapeHtml(message)}</div>`;
+      }
+
+      function clearError(target) {
+        target.innerHTML = "";
+      }
+
+      function renderEditState() {
+        els.addStoreButton.textContent = editingStoreId ? "매장 저장" : "매장 추가";
+        els.cancelStoreEditButton.hidden = !editingStoreId;
+        els.addThemeButton.textContent = editingThemeId ? "테마 저장" : "테마 추가";
+        els.cancelThemeEditButton.hidden = !editingThemeId;
+        els.addTravelButton.textContent = editingTravelPair ? "이동시간 저장" : "이동시간 추가";
+        els.cancelTravelEditButton.hidden = !editingTravelPair;
+      }
+
+      function resetStoreForm() {
+        editingStoreId = null;
+        els.storeName.value = "";
+        els.storeArea.value = "";
+        els.storeAddress.value = "";
+        renderEditState();
+      }
+
+      function resetThemeForm() {
+        editingThemeId = null;
+        els.themeName.value = "";
+        els.themeDuration.value = "60";
+        els.themeSlots.value = "";
+        renderEditState();
+      }
+
+      function resetTravelForm() {
+        editingTravelPair = null;
+        els.travelMinutes.value = "15";
+        els.travelBothWays.checked = true;
+        renderEditState();
+      }
+
+      function backupFileName() {
+        const today = new Date().toISOString().slice(0, 10);
+        return `escape-scheduler-backup-${today}.json`;
+      }
+
+      function exportBackup() {
+        data.settings = readSettings();
+        refreshJsonEditor();
+        persistData();
+
+        const body = JSON.stringify(data, null, 2);
+        const blob = new Blob([body], { type: "application/json;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = backupFileName();
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(url), 500);
+        els.saveState.textContent = "백업 저장됨";
+      }
+
+      function importBackupFile(file) {
+        if (!file) {
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.addEventListener("load", () => {
+          try {
+            data = normalizeData(JSON.parse(String(reader.result || "")));
+            clearError(els.jsonError);
+            render();
+            persistData();
+            generateSchedules();
+            els.saveState.textContent = "백업 불러옴";
+          } catch (error) {
+            showError(els.jsonError, `백업 파일 오류: ${error.message}`);
+          } finally {
+            els.backupFileInput.value = "";
+          }
+        });
+
+        reader.addEventListener("error", () => {
+          showError(els.jsonError, "백업 파일을 읽지 못했습니다.");
+          els.backupFileInput.value = "";
+        });
+
+        reader.readAsText(file, "utf-8");
+      }
+
+      function saveStore() {
+        const name = els.storeName.value.trim();
+        const area = els.storeArea.value.trim();
+        const address = els.storeAddress.value.trim();
+        if (!name) {
+          els.storeName.focus();
+          return;
+        }
+
+        if (editingStoreId) {
+          const store = data.stores.find((item) => item.id === editingStoreId);
+          if (store) {
+            const addressChanged = store.address !== address;
+            store.name = name;
+            store.area = area;
+            store.address = address;
+            if (addressChanged) {
+              store.x = null;
+              store.y = null;
+              store.geocodeAddress = "";
+            }
+          }
+        } else {
+          data.stores.push({ id: makeId("store"), name, area, address, x: null, y: null, geocodeAddress: "" });
+        }
+
+        resetStoreForm();
+        saveData();
+        render();
+      }
+
+      function editStore(storeId) {
+        const store = data.stores.find((item) => item.id === storeId);
+        if (!store) {
+          return;
+        }
+
+        editingStoreId = store.id;
+        els.storeName.value = store.name;
+        els.storeArea.value = store.area || "";
+        els.storeAddress.value = store.address || "";
+        renderEditState();
+        els.storeName.focus();
+      }
+
+      async function kakaoFetch(url, key) {
+        let response;
+        try {
+          response = await fetch(url, {
+            headers: {
+              Authorization: `KakaoAK ${key}`,
+              "Content-Type": "application/json"
+            }
+          });
+        } catch {
+          throw new Error("카카오 API에 연결하지 못했습니다. 네트워크, API 권한, 브라우저 보안 제한을 확인하세요.");
+        }
+
+        if (!response.ok) {
+          let detail = "";
+          try {
+            const text = await response.text();
+            if (text) {
+              const body = JSON.parse(text);
+              detail = body.msg || body.message || text;
+            }
+          } catch {
+            detail = "";
+          }
+
+          if (response.status === 403) {
+            const target = url.includes("apis-navi.kakaomobility.com") ? "카카오모빌리티 길찾기 API" : "카카오 로컬 API";
+            const serviceDisabled = detail.includes("OPEN_MAP_AND_LOCAL") || detail.includes("disabled");
+            if (serviceDisabled) {
+              throw new Error(`${target} 403: 카카오디벨로퍼스에서 카카오맵/로컬 서비스가 꺼져 있습니다. 내 애플리케이션 > 제품 설정 > 카카오맵에서 사용 설정을 켜고, 호출 허용 IP 제한이 있으면 현재 접속 IP를 허용하세요.${detail ? ` (${detail})` : ""}`);
+            }
+            throw new Error(`${target} 403: REST API 키 권한, 서비스 사용 설정, 호출 허용 IP를 확인하세요.${detail ? ` (${detail})` : ""}`);
+          }
+
+          throw new Error(`카카오 API 오류 ${response.status}${detail ? `: ${detail}` : ""}`);
+        }
+
+        return response.json();
+      }
+
+      async function geocodeStore(store, key) {
+        if (store.x != null && store.y != null && store.geocodeAddress === store.address) {
+          return { x: store.x, y: store.y };
+        }
+
+        if (!store.address) {
+          throw new Error(`${store.name} 주소가 비어 있습니다.`);
+        }
+
+        const url = `https://dapi.kakao.com/v2/local/search/address.json?query=${encodeURIComponent(store.address)}`;
+        const result = await kakaoFetch(url, key);
+        const document = result.documents && result.documents[0];
+        if (!document) {
+          throw new Error(`${store.name} 주소를 찾지 못했습니다.`);
+        }
+
+        store.x = Number(document.x);
+        store.y = Number(document.y);
+        store.geocodeAddress = store.address;
+        return { x: store.x, y: store.y };
+      }
+
+      async function getKakaoDriveMinutes(from, to, key) {
+        const origin = await geocodeStore(from, key);
+        const destination = await geocodeStore(to, key);
+        const params = new URLSearchParams({
+          origin: `${origin.x},${origin.y}`,
+          destination: `${destination.x},${destination.y}`,
+          priority: "RECOMMEND",
+          summary: "true"
+        });
+        const url = `https://apis-navi.kakaomobility.com/v1/directions?${params.toString()}`;
+        const result = await kakaoFetch(url, key);
+        const route = result.routes && result.routes[0];
+
+        if (!route || route.result_code !== 0 || !route.summary) {
+          throw new Error(`${from.name}에서 ${to.name}까지 경로를 찾지 못했습니다.`);
+        }
+
+        return Math.max(1, Math.ceil(route.summary.duration / 60));
+      }
+
+      async function autoFillTravelTimes() {
+        const key = els.kakaoRestKey.value.trim();
+        if (!key) {
+          els.autoTravelStatus.textContent = "카카오 REST API 키를 입력하세요.";
+          els.kakaoRestKey.focus();
+          return;
+        }
+
+        const storesWithAddress = data.stores.filter((store) => store.address.trim());
+        if (storesWithAddress.length < 2) {
+          els.autoTravelStatus.textContent = "주소가 입력된 매장이 2개 이상 필요합니다.";
+          return;
+        }
+
+        localStorage.setItem(KAKAO_KEY_STORAGE, key);
+        els.autoTravelButton.disabled = true;
+        els.autoTravelStatus.textContent = "주소를 좌표로 변환하는 중...";
+
+        try {
+          for (let i = 0; i < storesWithAddress.length; i += 1) {
+            await geocodeStore(storesWithAddress[i], key);
+          }
+
+          const total = storesWithAddress.length * (storesWithAddress.length - 1);
+          let done = 0;
+          for (const from of storesWithAddress) {
+            for (const to of storesWithAddress) {
+              if (from.id === to.id) {
+                continue;
+              }
+
+              done += 1;
+              els.autoTravelStatus.textContent = `이동시간 계산 중... ${done}/${total}`;
+              const minutes = await getKakaoDriveMinutes(from, to, key);
+              upsertTravel(from.id, to.id, minutes);
+            }
+          }
+
+          saveData();
+          render();
+          generateSchedules();
+          els.autoTravelStatus.textContent = `주소 기준 이동시간 ${total}개를 적용했습니다.`;
+        } catch (error) {
+          els.autoTravelStatus.textContent = error.message || "자동 계산에 실패했습니다.";
+        } finally {
+          els.autoTravelButton.disabled = false;
+        }
+      }
+
+      function saveTheme() {
+        const storeId = els.themeStore.value;
+        const name = els.themeName.value.trim();
+        const duration = toPositiveInt(els.themeDuration.value, 60);
+        const slots = normalizeSlots(els.themeSlots.value);
+
+        if (!storeId || !name || slots.length === 0) {
+          return;
+        }
+
+        if (editingThemeId) {
+          const theme = data.themes.find((item) => item.id === editingThemeId);
+          if (theme) {
+            theme.storeId = storeId;
+            theme.name = name;
+            theme.duration = duration;
+            theme.slots = slots;
+          }
+        } else {
+          const themeId = makeId("theme");
+          data.themes.push({
+            id: themeId,
+            storeId,
+            name,
+            duration,
+            slots
+          });
+          data.settings.selectedThemeIds = Array.from(getSelectedThemeIds());
+          data.settings.selectedThemeIds.push(themeId);
+        }
+
+        resetThemeForm();
+        saveData();
+        render();
+      }
+
+      function editTheme(themeId) {
+        const theme = data.themes.find((item) => item.id === themeId);
+        if (!theme) {
+          return;
+        }
+
+        editingThemeId = theme.id;
+        els.themeStore.value = theme.storeId;
+        els.themeName.value = theme.name;
+        els.themeDuration.value = theme.duration;
+        els.themeSlots.value = theme.slots.join(", ");
+        renderEditState();
+        els.themeName.focus();
+      }
+
+      function upsertTravel(fromStoreId, toStoreId, minutes) {
+        if (!fromStoreId || !toStoreId || fromStoreId === toStoreId) {
+          return;
+        }
+
+        const existing = data.travelTimes.find((item) => item.fromStoreId === fromStoreId && item.toStoreId === toStoreId);
+        if (existing) {
+          existing.minutes = minutes;
+        } else {
+          data.travelTimes.push({ fromStoreId, toStoreId, minutes });
+        }
+      }
+
+      function saveTravel() {
+        const from = els.travelFrom.value;
+        const to = els.travelTo.value;
+        const minutes = toNonNegativeInt(els.travelMinutes.value, 0);
+
+        if (editingTravelPair) {
+          const [oldFrom, oldTo] = editingTravelPair.split("|");
+          data.travelTimes = data.travelTimes.filter((item) => item.fromStoreId !== oldFrom || item.toStoreId !== oldTo);
+        }
+
+        upsertTravel(from, to, minutes);
+        if (els.travelBothWays.checked) {
+          upsertTravel(to, from, minutes);
+        }
+        resetTravelForm();
+        saveData();
+        render();
+      }
+
+      function editTravel(pair) {
+        const [fromStoreId, toStoreId] = pair.split("|");
+        const travel = data.travelTimes.find((item) => item.fromStoreId === fromStoreId && item.toStoreId === toStoreId);
+        if (!travel) {
+          return;
+        }
+
+        editingTravelPair = pair;
+        els.travelFrom.value = travel.fromStoreId;
+        els.travelTo.value = travel.toStoreId;
+        els.travelMinutes.value = travel.minutes;
+        els.travelBothWays.checked = false;
+        renderEditState();
+        els.travelMinutes.focus();
+      }
+
+      function deleteStore(storeId) {
+        data.stores = data.stores.filter((store) => store.id !== storeId);
+        data.themes = data.themes.filter((theme) => theme.storeId !== storeId);
+        data.travelTimes = data.travelTimes.filter((item) => item.fromStoreId !== storeId && item.toStoreId !== storeId);
+        if (editingStoreId === storeId) {
+          resetStoreForm();
+        }
+        if (editingThemeId && !data.themes.some((theme) => theme.id === editingThemeId)) {
+          resetThemeForm();
+        }
+        if (editingTravelPair) {
+          const [fromStoreId, toStoreId] = editingTravelPair.split("|");
+          if (fromStoreId === storeId || toStoreId === storeId) {
+            resetTravelForm();
+          }
+        }
+        saveData();
+        render();
+      }
+
+      function deleteTheme(themeId) {
+        data.themes = data.themes.filter((theme) => theme.id !== themeId);
+        setSelectedThemeIds(Array.from(getSelectedThemeIds()).filter((id) => id !== themeId));
+        if (editingThemeId === themeId) {
+          resetThemeForm();
+        }
+        saveData();
+        render();
+      }
+
+      function deleteTravel(pair) {
+        const [fromStoreId, toStoreId] = pair.split("|");
+        data.travelTimes = data.travelTimes.filter((item) => item.fromStoreId !== fromStoreId || item.toStoreId !== toStoreId);
+        if (editingTravelPair === pair) {
+          resetTravelForm();
+        }
+        saveData();
+        render();
+      }
+
+      function getTravel(fromStoreId, toStoreId, settings) {
+        if (fromStoreId === toStoreId) {
+          return { minutes: 0, isDefault: false };
+        }
+
+        const item = data.travelTimes.find((travel) => travel.fromStoreId === fromStoreId && travel.toStoreId === toStoreId);
+        if (item) {
+          return { minutes: item.minutes, isDefault: false };
+        }
+
+        return { minutes: settings.defaultTravel, isDefault: true };
+      }
+
+      function buildSessions(settings) {
+        const dayStart = parseTime(settings.dayStart);
+        const dayEnd = parseTime(settings.dayEnd);
+        if (dayStart === null || dayEnd === null || dayEnd <= dayStart) {
+          throw new Error("시작/종료 시간을 확인하세요. 밤 12시 이후는 24:30처럼 입력할 수 있습니다.");
+        }
+
+        const sessions = [];
+        const selectedThemeIds = new Set(settings.selectedThemeIds || []);
+        for (const theme of data.themes) {
+          if (!selectedThemeIds.has(theme.id)) {
+            continue;
+          }
+
+          const store = data.stores.find((item) => item.id === theme.storeId);
+          if (!store) {
+            continue;
+          }
+
+          for (const slot of theme.slots) {
+            const start = parseTime(slot);
+            if (start === null) {
+              continue;
+            }
+
+            const end = start + theme.duration;
+            if (start < dayStart || end > dayEnd) {
+              continue;
+            }
+
+            sessions.push({
+              themeId: theme.id,
+              themeName: theme.name,
+              storeId: store.id,
+              storeName: store.name,
+              storeArea: store.area,
+              start,
+              end,
+              duration: theme.duration
+            });
+          }
+        }
+
+        return sessions.sort((a, b) => a.start - b.start || a.end - b.end || a.themeName.localeCompare(b.themeName, "ko-KR"));
+      }
+
+      function makeCandidate(path, settings) {
+        let totalTravel = 0;
+        let totalWait = 0;
+        let defaultTravelCount = 0;
+        const transfers = [];
+
+        for (let i = 1; i < path.length; i += 1) {
+          const previous = path[i - 1];
+          const current = path[i];
+          const travel = getTravel(previous.storeId, current.storeId, settings);
+          const wait = Math.max(0, current.start - previous.end - travel.minutes);
+          totalTravel += travel.minutes;
+          totalWait += wait;
+          defaultTravelCount += travel.isDefault ? 1 : 0;
+          transfers.push({ travel: travel.minutes, wait, isDefault: travel.isDefault });
+        }
+
+        return {
+          path: path.map((item) => ({ ...item })),
+          transfers,
+          count: path.length,
+          start: path[0].start,
+          end: path[path.length - 1].end,
+          totalTravel,
+          totalWait,
+          defaultTravelCount,
+          totalPlay: path.reduce((sum, item) => sum + item.duration, 0)
+        };
+      }
+
+      function maxWait(candidate) {
+        if (candidate.transfers.length === 0) {
+          return 0;
+        }
+        return Math.max(...candidate.transfers.map((transfer) => transfer.wait));
+      }
+
+      function compareCandidatesByEfficiency(a, b) {
+        return b.count - a.count ||
+          a.totalWait - b.totalWait ||
+          maxWait(a) - maxWait(b) ||
+          a.totalTravel - b.totalTravel ||
+          a.defaultTravelCount - b.defaultTravelCount ||
+          a.start - b.start ||
+          a.end - b.end;
+      }
+
+      function generateSchedules() {
+        clearError(els.results);
+        data.settings = readSettings();
+        saveData();
+
+        const settings = data.settings;
+        const maxThemes = Math.min(toPositiveInt(settings.maxThemes, 4), 10);
+        const maxResults = Math.min(toPositiveInt(settings.maxResults, 12), 80);
+        let sessions;
+
+        try {
+          sessions = buildSessions(settings);
+        } catch (error) {
+          els.summary.textContent = "시간 설정 오류";
+          els.results.innerHTML = `<div class="error">${escapeHtml(error.message)}</div>`;
+          return;
+        }
+
+        if (sessions.length === 0) {
+          els.summary.textContent = "사용 가능한 시간이 없습니다.";
+          els.results.innerHTML = `<div class="empty">조건에 맞는 테마 시간이 없습니다.</div>`;
+          return;
+        }
+
+        const candidates = [];
+        let explored = 0;
+        let clipped = false;
+
+        function dfs(index, path, usedThemes) {
+          if (explored > SEARCH_LIMIT) {
+            clipped = true;
+            return;
+          }
+
+          explored += 1;
+
+          if (path.length >= 2) {
+            candidates.push(makeCandidate(path, settings));
+          }
+
+          if (path.length >= maxThemes) {
+            return;
+          }
+
+          const last = path[path.length - 1];
+          for (let nextIndex = index + 1; nextIndex < sessions.length; nextIndex += 1) {
+            const next = sessions[nextIndex];
+            if (!settings.allowSameTheme && usedThemes.has(next.themeId)) {
+              continue;
+            }
+
+            const travel = getTravel(last.storeId, next.storeId, settings);
+            const earliest = last.end + travel.minutes + settings.minBreak;
+            if (next.start < earliest) {
+              continue;
+            }
+
+            const nextUsed = new Set(usedThemes);
+            nextUsed.add(next.themeId);
+            dfs(nextIndex, [...path, next], nextUsed);
+
+            if (clipped) {
+              return;
+            }
+          }
+        }
+
+        for (let index = 0; index < sessions.length; index += 1) {
+          const session = sessions[index];
+          dfs(index, [session], new Set([session.themeId]));
+          if (clipped) {
+            break;
+          }
+        }
+
+        candidates.sort(compareCandidatesByEfficiency);
+
+        const best = candidates.slice(0, maxResults);
+        renderResults(best, sessions.length, clipped);
+      }
+
+      function renderResults(candidates, sessionCount, clipped) {
+        if (candidates.length === 0) {
+          lastGeneratedCandidates = [];
+          els.summary.textContent = `${sessionCount}개 시간 중 연방 후보 0개`;
+          els.results.innerHTML = `<div class="empty">후보가 없습니다. 선택 테마를 늘리거나 이동시간을 낮춰보세요.</div>`;
+          return;
+        }
+
+        lastGeneratedCandidates = candidates;
+        const maxCount = candidates[0].count;
+        els.summary.textContent = `${sessionCount}개 시간 중 ${candidates.length}개 후보 · 최대 ${maxCount}연방 · 대기 적은 순`;
+        els.results.innerHTML = candidates.map((candidate, index) => renderCandidate(candidate, index)).join("");
+
+        if (clipped) {
+          els.results.insertAdjacentHTML("beforeend", `<div class="notice">후보가 많아 일부 탐색만 표시했습니다.</div>`);
+        }
+      }
+
+      function renderCandidate(candidate, index) {
+        const hasDefault = candidate.defaultTravelCount > 0;
+        const duration = candidate.end - candidate.start;
+        const storeCount = new Set(candidate.path.map((item) => item.storeId)).size;
+        const waitMax = maxWait(candidate);
+
+        const stops = candidate.path.map((session, stopIndex) => {
+          const transfer = stopIndex > 0 ? candidate.transfers[stopIndex - 1] : null;
+          const transferHtml = transfer ? `
+            <div class="transfer">
+              <span class="pill ${transfer.isDefault ? "warn" : "ok"}">이동 ${transfer.travel}분${transfer.isDefault ? " 기본값" : ""}</span>
+              <span class="pill">대기 ${transfer.wait}분</span>
+            </div>
+          ` : "";
+
+          return `
+            ${transferHtml}
+            <div class="stop">
+              <div class="time">${formatTime(session.start)}-${formatTime(session.end)}</div>
+              <div>
+                <div class="theme">${escapeHtml(session.themeName)}</div>
+                <div class="store">${escapeHtml(session.storeName)} · ${escapeHtml(session.storeArea || "지역 미입력")}</div>
+              </div>
+            </div>
+          `;
+        }).join("");
+
+        return `
+          <article class="candidate">
+            <div class="candidate-head">
+              <div class="candidate-title">
+                <span>후보 ${index + 1}</span>
+                <span class="pill ok">${candidate.count}연방</span>
+                <span class="pill">${formatTime(candidate.start)}-${formatTime(candidate.end)}</span>
+                <span class="pill ok">최대 대기 ${waitMax}분</span>
+              </div>
+              <span class="pill ${hasDefault ? "warn" : "ok"}">${storeCount}개 매장</span>
+            </div>
+            <div class="timeline">
+              ${stops}
+              <div class="button-row" style="padding-top: 8px;">
+                <span class="pill">총 ${duration}분</span>
+                <span class="pill">플레이 ${candidate.totalPlay}분</span>
+                <span class="pill">이동 ${candidate.totalTravel}분</span>
+                <span class="pill">대기 ${candidate.totalWait}분</span>
+              </div>
+            </div>
+          </article>
+        `;
+      }
+
+      document.querySelectorAll(".tab").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          document.querySelectorAll(".tab").forEach((item) => item.classList.remove("active"));
+          document.querySelectorAll(".tab-panel").forEach((item) => item.classList.remove("active"));
+          tab.classList.add("active");
+          document.querySelector(`#tab-${tab.dataset.tab}`).classList.add("active");
+          if (tab.dataset.tab === "json") {
+            refreshJsonEditor();
+          }
+        });
+      });
+
+      els.themeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          applyColorTheme(button.dataset.colorTheme || "default");
+        });
+      });
+
+      els.addStoreButton.addEventListener("click", saveStore);
+      els.cancelStoreEditButton.addEventListener("click", resetStoreForm);
+      els.addThemeButton.addEventListener("click", saveTheme);
+      els.cancelThemeEditButton.addEventListener("click", resetThemeForm);
+      els.selectAllThemesButton.addEventListener("click", () => {
+        setSelectedThemeIds(data.themes.map((theme) => theme.id));
+        saveData();
+        render();
+        generateSchedules();
+      });
+      els.clearThemesButton.addEventListener("click", () => {
+        setSelectedThemeIds([]);
+        saveData();
+        render();
+        generateSchedules();
+      });
+      els.addTravelButton.addEventListener("click", saveTravel);
+      els.cancelTravelEditButton.addEventListener("click", resetTravelForm);
+      els.autoTravelButton.addEventListener("click", autoFillTravelTimes);
+      els.exportResultsButton.addEventListener("click", exportResultsToExcel);
+      els.generateButton.addEventListener("click", generateSchedules);
+
+      [els.dayStart, els.dayEnd, els.maxResults].forEach((input) => {
+        input.addEventListener("change", () => {
+          data.settings = readSettings();
+          saveData();
+        });
+      });
+
+      els.storeRows.addEventListener("click", (event) => {
+        const editId = event.target.dataset.editStore;
+        const deleteId = event.target.dataset.deleteStore;
+        if (editId) {
+          editStore(editId);
+        }
+        if (deleteId) {
+          deleteStore(deleteId);
+        }
+      });
+
+      els.themeRows.addEventListener("click", (event) => {
+        const editId = event.target.dataset.editTheme;
+        const deleteId = event.target.dataset.deleteTheme;
+        if (editId) {
+          editTheme(editId);
+        }
+        if (deleteId) {
+          deleteTheme(deleteId);
+        }
+      });
+
+      els.themeRows.addEventListener("change", (event) => {
+        const id = event.target.dataset.selectTheme;
+        if (!id) {
+          return;
+        }
+
+        const selected = getSelectedThemeIds();
+        if (event.target.checked) {
+          selected.add(id);
+        } else {
+          selected.delete(id);
+        }
+
+        setSelectedThemeIds(Array.from(selected));
+        saveData();
+        render();
+      });
+
+      els.travelRows.addEventListener("click", (event) => {
+        const editPair = event.target.dataset.editTravel;
+        const deletePair = event.target.dataset.deleteTravel;
+        if (editPair) {
+          editTravel(editPair);
+        }
+        if (deletePair) {
+          deleteTravel(deletePair);
+        }
+      });
+
+      els.applyJsonButton.addEventListener("click", () => {
+        try {
+          data = normalizeData(JSON.parse(els.jsonEditor.value));
+          clearError(els.jsonError);
+          render();
+          persistData();
+        } catch (error) {
+          showError(els.jsonError, `JSON 오류: ${error.message}`);
+        }
+      });
+
+      els.refreshJsonButton.addEventListener("click", refreshJsonEditor);
+
+      els.exportBackupButton.addEventListener("click", exportBackup);
+
+      els.importBackupButton.addEventListener("click", () => {
+        els.backupFileInput.click();
+      });
+
+      els.backupFileInput.addEventListener("change", () => {
+        importBackupFile(els.backupFileInput.files[0]);
+      });
+
+      els.resetButton.addEventListener("click", () => {
+        data = normalizeData(clone(sampleData));
+        render();
+        persistData();
+        generateSchedules();
+      });
+
+      [els.storeName, els.storeArea, els.storeAddress].forEach((input) => {
+        input.addEventListener("keydown", (event) => {
+          if (event.key === "Enter") {
+            saveStore();
+          }
+        });
+      });
+
+      [els.themeName, els.themeDuration, els.themeSlots].forEach((input) => {
+        input.addEventListener("keydown", (event) => {
+          if (event.key === "Enter") {
+            saveTheme();
+          }
+        });
+      });
+
+      [els.travelMinutes].forEach((input) => {
+        input.addEventListener("keydown", (event) => {
+          if (event.key === "Enter") {
+            saveTravel();
+          }
+        });
+      });
+
+      applyColorTheme(localStorage.getItem(COLOR_THEME_STORAGE) || "default", false);
+      render();
+      generateSchedules();
+    })();
+  </script>
+</body>
+</html>
