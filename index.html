@@ -24,6 +24,24 @@
       font-display: swap;
     }
 
+    @font-face {
+      font-family: "Escape Casefile";
+      src: url("fonts/Ownglyph-Badatbaram.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Escape Airport Display";
+      src: url("fonts/A2Z-7Bold.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Escape Airport Text";
+      src: url("fonts/A2Z-4Regular.woff2") format("woff2");
+      font-display: swap;
+    }
+
     :root {
       color-scheme: light;
       --bg: #f2f5f7;
@@ -242,6 +260,95 @@
       --texture: none;
     }
 
+    :root[data-theme="casefile"] {
+      --bg: #b99b62;
+      --panel: #efe1b8;
+      --line: #6f5936;
+      --line-strong: #2b2117;
+      --ink: #201a12;
+      --muted: #6b5633;
+      --faint: #e4d1a0;
+      --soft: #dcc48b;
+      --input-bg: #f7edcc;
+      --bg-top: #d7bf83;
+      --teal: #1f2933;
+      --teal-soft: rgba(31, 41, 51, 0.12);
+      --panel-header-bg: #dfc88f;
+      --blue: #5b4127;
+      --blue-soft: rgba(91, 65, 39, 0.16);
+      --orange: #8f2f1b;
+      --orange-soft: rgba(143, 47, 27, 0.14);
+      --orange-line: rgba(143, 47, 27, 0.42);
+      --orange-ink: #631f12;
+      --success-soft: rgba(24, 82, 55, 0.13);
+      --success-ink: #244f35;
+      --danger-soft: rgba(75, 28, 19, 0.16);
+      --danger-line: rgba(75, 28, 19, 0.46);
+      --rose: #5f1d14;
+      --button-ink-on-color: #f5e7c2;
+      --row-line: rgba(89, 69, 40, 0.28);
+      --shadow: 0 20px 38px rgba(57, 39, 18, 0.26), 0 1px 0 rgba(255,255,255,0.38) inset;
+      --shadow-soft: 0 10px 24px rgba(57, 39, 18, 0.18);
+      --font-main: "Escape Casefile", "Courier New", "Courier Prime", "GulimChe", "굴림체", "D2Coding", "Malgun Gothic", monospace;
+      --font-display: "Escape Casefile", "Courier New", "Courier Prime", "GulimChe", "굴림체", "D2Coding", "Malgun Gothic", monospace;
+      --font-ui: "Escape Casefile", "Courier New", "Courier Prime", "GulimChe", "굴림체", "D2Coding", "Malgun Gothic", monospace;
+      --panel-radius: 2px;
+      --control-radius: 2px;
+      --small-radius: 1px;
+      --border-size: 1px;
+      --button-shadow: 0 3px 0 rgba(46, 32, 17, 0.22);
+      --section-ink: #2b2117;
+      --texture:
+        repeating-linear-gradient(0deg, rgba(70,48,20,0.05) 0 1px, transparent 1px 5px),
+        radial-gradient(circle at 16% 10%, rgba(95,49,20,0.16), transparent 23%),
+        radial-gradient(circle at 86% 4%, rgba(255,244,196,0.28), transparent 24%),
+        linear-gradient(105deg, rgba(83,55,20,0.08), transparent 36%);
+    }
+
+    :root[data-theme="airport"] {
+      --bg: #dbe6f0;
+      --panel: #f7fbff;
+      --line: #aab8c8;
+      --line-strong: #42566f;
+      --ink: #122033;
+      --muted: #5b6b7d;
+      --faint: #edf4fb;
+      --soft: #dfeaf4;
+      --input-bg: #ffffff;
+      --bg-top: #f4f8fc;
+      --teal: #0067a8;
+      --teal-soft: rgba(0, 103, 168, 0.12);
+      --panel-header-bg: #102132;
+      --blue: #0067a8;
+      --blue-soft: rgba(0, 103, 168, 0.12);
+      --orange: #f6b91a;
+      --orange-soft: rgba(246, 185, 26, 0.17);
+      --orange-line: rgba(246, 185, 26, 0.5);
+      --orange-ink: #6d4b00;
+      --success-soft: rgba(4, 120, 87, 0.12);
+      --success-ink: #047857;
+      --danger-soft: rgba(190, 18, 60, 0.12);
+      --danger-line: rgba(190, 18, 60, 0.34);
+      --rose: #be123c;
+      --button-ink-on-color: #ffffff;
+      --row-line: rgba(66, 86, 111, 0.18);
+      --shadow: 0 18px 38px rgba(21, 45, 75, 0.18), 0 0 0 1px rgba(255,255,255,0.5) inset;
+      --shadow-soft: 0 10px 24px rgba(21, 45, 75, 0.12);
+      --font-main: "Escape Airport Text", "NEXON Lv1 Gothic", "Aptos", "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+      --font-display: "Escape Airport Display", "NEXON Lv1 Gothic", "Arial Narrow", "Segoe UI Semibold", "Segoe UI", "Malgun Gothic", sans-serif;
+      --font-ui: "Escape Airport Text", "NEXON Lv1 Gothic", "Aptos", "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+      --panel-radius: 6px;
+      --control-radius: 6px;
+      --small-radius: 2px;
+      --border-size: 1px;
+      --button-shadow: 0 8px 18px rgba(0, 103, 168, 0.18);
+      --section-ink: #0f355d;
+      --texture:
+        linear-gradient(90deg, rgba(0,103,168,0.07) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(0,103,168,0.05) 1px, transparent 1px),
+        radial-gradient(circle at 86% 8%, rgba(246,185,26,0.24), transparent 22%);
+    }
+
     :root[data-theme="dark"] {
       color-scheme: dark;
       --bg: #070b12;
@@ -272,9 +379,9 @@
       --row-line: #202a3a;
       --shadow: 0 20px 44px rgba(0,0,0,0.42), 0 0 0 1px rgba(255,255,255,0.02);
       --shadow-soft: 0 12px 28px rgba(0,0,0,0.3);
-      --font-main: Inter, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
-      --font-display: "Segoe UI Semibold", Inter, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-      --font-ui: Inter, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+      --font-main: "Escape Glass", "NEXON Lv1 Gothic", Inter, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+      --font-display: "Escape Glass", "NEXON Lv1 Gothic", "Segoe UI Semibold", Inter, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      --font-ui: "Escape Glass", "NEXON Lv1 Gothic", Inter, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
       --panel-radius: 8px;
       --control-radius: 7px;
       --small-radius: 5px;
@@ -351,13 +458,30 @@
       align-items: end;
       justify-content: space-between;
       gap: 12px;
+      position: relative;
       margin-bottom: 12px;
+    }
+
+    .theme-art {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .title-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
     }
 
     .brand {
       display: grid;
       gap: 8px;
       min-width: 0;
+      position: relative;
+      z-index: 2;
     }
 
     .eyebrow {
@@ -372,6 +496,7 @@
       font-size: clamp(26px, 5vw, 38px);
       line-height: 1;
       letter-spacing: 0;
+      min-width: 0;
     }
 
     .lead {
@@ -389,6 +514,44 @@
       gap: 8px;
       align-items: center;
       justify-content: flex-end;
+      position: relative;
+      z-index: 2;
+    }
+
+    .theme-menu {
+      position: relative;
+    }
+
+    .theme-menu[open] {
+      z-index: 10;
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 36px;
+      padding: 0 12px;
+      border: var(--border-size) solid var(--line);
+      border-radius: var(--control-radius);
+      background: var(--panel);
+      color: var(--ink);
+      box-shadow: var(--button-shadow);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 900;
+      list-style: none;
+      white-space: nowrap;
+    }
+
+    .theme-toggle::-webkit-details-marker {
+      display: none;
+    }
+
+    .theme-toggle::after {
+      content: "▾";
+      color: var(--muted);
+      font-size: 10px;
     }
 
     .theme-picker {
@@ -396,6 +559,15 @@
       flex-wrap: wrap;
       gap: 6px;
       justify-content: flex-end;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      width: min(280px, calc(100vw - 24px));
+      padding: 8px;
+      border: var(--border-size) solid var(--line);
+      border-radius: var(--panel-radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
     }
 
     .theme-choice {
@@ -446,21 +618,24 @@
     .guide {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-      margin-bottom: 14px;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 8px;
+      border: var(--border-size) solid var(--line);
+      border-radius: var(--panel-radius);
+      background: color-mix(in srgb, var(--panel) 70%, transparent);
+      box-shadow: var(--shadow-soft);
     }
 
     .guide-step {
       display: grid;
       grid-template-columns: auto 1fr;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
-      min-height: 70px;
-      padding: 12px;
-      border: var(--border-size) solid var(--line);
-      border-radius: var(--panel-radius);
-      background: var(--panel);
-      box-shadow: var(--shadow-soft);
+      min-height: 42px;
+      padding: 6px 8px;
+      border-radius: var(--control-radius);
+      background: var(--faint);
     }
 
     .step-number {
@@ -492,7 +667,7 @@
 
     .workspace {
       display: grid;
-      grid-template-columns: minmax(420px, 0.95fr) minmax(480px, 1.2fr);
+      grid-template-columns: minmax(340px, 0.55fr) minmax(660px, 1.45fr);
       gap: 14px;
       align-items: start;
     }
@@ -750,11 +925,79 @@
 
     .settings {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: 104px 104px minmax(250px, 1fr) 96px;
       gap: 10px;
       padding: 14px;
       border-bottom: var(--border-size) solid var(--line);
+      background:
+        linear-gradient(135deg, var(--blue-soft), transparent 70%),
+        var(--faint);
+      align-items: end;
+    }
+
+    .planner-theme-panel {
+      display: grid;
+      gap: 8px;
+      padding: 12px 14px;
+      border-bottom: var(--border-size) solid var(--line);
+      background: var(--panel);
+    }
+
+    .mini-section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .mini-section-head strong {
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .mini-section-head span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .planner-theme-choices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      max-height: 96px;
+      overflow-y: auto;
+      padding-right: 2px;
+      scrollbar-gutter: stable;
+    }
+
+    .theme-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 32px;
+      padding: 0 9px;
+      border: var(--border-size) solid var(--line);
+      border-radius: var(--control-radius);
       background: var(--faint);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .theme-chip input {
+      width: 16px;
+      min-height: 16px;
+      padding: 0;
+      accent-color: var(--teal);
+    }
+
+    .theme-chip:has(input:checked) {
+      border-color: var(--teal);
+      background: var(--teal-soft);
+      color: var(--teal);
     }
 
     .check-field {
@@ -797,6 +1040,12 @@
       justify-content: flex-end;
     }
 
+    .result-buttons .button.primary {
+      min-width: 150px;
+      min-height: 44px;
+      font-size: 15px;
+    }
+
     .results {
       display: grid;
       gap: 10px;
@@ -825,17 +1074,66 @@
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      padding: 10px 12px;
+      padding: 12px;
       border-bottom: var(--border-size) solid var(--line);
       background: var(--faint);
     }
 
-    .candidate-title {
+    .candidate-rank {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .candidate-index {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .candidate-rank strong {
+      color: var(--ink);
+      font-size: 20px;
+      line-height: 1.15;
+      font-weight: 900;
+    }
+
+    .candidate-window {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .candidate-score {
+      display: grid;
+      justify-items: end;
+      gap: 2px;
+      min-width: 126px;
+      padding: 10px 12px;
+      border: var(--border-size) solid var(--line);
+      border-radius: var(--panel-radius);
+      background: var(--teal-soft);
+      color: var(--teal);
+    }
+
+    .candidate-score span {
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .candidate-score strong {
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .candidate-metrics {
       display: flex;
       flex-wrap: wrap;
       gap: 7px;
-      align-items: center;
-      font-weight: 900;
+      padding: 10px 12px;
+      border-bottom: var(--border-size) solid var(--line);
+      background: var(--panel);
     }
 
     .pill {
@@ -864,15 +1162,41 @@
     .timeline {
       display: grid;
       gap: 0;
-      padding: 8px 12px 12px;
+      position: relative;
+      padding: 10px 12px 12px 26px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      bottom: 44px;
+      left: 15px;
+      width: 2px;
+      border-radius: 999px;
+      background: var(--row-line);
     }
 
     .stop {
       display: grid;
       grid-template-columns: 86px 1fr;
       gap: 10px;
+      position: relative;
       padding: 9px 0;
       border-bottom: var(--border-size) solid var(--row-line);
+    }
+
+    .stop::before {
+      content: "";
+      position: absolute;
+      left: -17px;
+      top: 15px;
+      width: 9px;
+      height: 9px;
+      border: 2px solid var(--panel);
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 2px var(--teal-soft);
     }
 
     .stop:last-child {
@@ -905,10 +1229,17 @@
       gap: 6px;
       align-items: center;
       margin: 0 0 0 96px;
-      padding: 4px 0 8px;
+      padding: 5px 0 8px;
       color: var(--muted);
       font-size: 12px;
       font-weight: 800;
+    }
+
+    .candidate-foot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding-top: 8px;
     }
 
     .notice {
@@ -978,6 +1309,48 @@
     :root[data-theme="arcade"] .time {
       text-shadow: 0 0 8px currentColor, 0 0 18px rgba(0,245,212,0.24);
       font-weight: 900;
+    }
+
+    :root[data-theme="arcade"] .topbar {
+      position: relative;
+    }
+
+    :root[data-theme="arcade"] .theme-art {
+      display: block;
+      top: 16px;
+      right: 250px;
+      width: 6px;
+      height: 6px;
+      image-rendering: pixelated;
+      filter: drop-shadow(0 0 8px rgba(0,245,212,0.68));
+      transform: scale(1.7);
+      transform-origin: top right;
+      box-shadow:
+        12px 0 #ffdf3d,
+        18px 0 #ffdf3d,
+        6px 6px #00f5d4,
+        12px 6px #ffdf3d,
+        18px 6px #ffdf3d,
+        24px 6px #00f5d4,
+        6px 12px #ffdf3d,
+        12px 12px #05060d,
+        18px 12px #ffdf3d,
+        24px 12px #05060d,
+        30px 12px #ffdf3d,
+        0 18px #00f5d4,
+        6px 18px #ffdf3d,
+        12px 18px #ffdf3d,
+        18px 18px #ffdf3d,
+        24px 18px #ffdf3d,
+        30px 18px #00f5d4,
+        6px 24px #ff2ed1,
+        12px 24px #00e5ff,
+        18px 24px #00e5ff,
+        24px 24px #ff2ed1,
+        0 30px #ff2ed1,
+        12px 30px #ffdf3d,
+        24px 30px #ffdf3d,
+        36px 30px #ff2ed1;
     }
 
     :root[data-theme="arcade"] .panel-header,
@@ -1099,6 +1472,414 @@
       box-shadow: 0 0 0 3px rgba(96,165,250,0.16);
     }
 
+    :root[data-theme="casefile"] body {
+      background-size: auto, auto, auto, auto;
+    }
+
+    :root[data-theme="casefile"] .topbar {
+      position: relative;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      overflow: visible;
+    }
+
+    :root[data-theme="casefile"] .topbar > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    :root[data-theme="casefile"] .topbar::before {
+      content: "";
+      display: none;
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 38px;
+      border-right: 1px solid rgba(43,33,23,0.72);
+      background:
+        radial-gradient(circle at 50% 28px, rgba(43,33,23,0.48) 0 4px, transparent 5px),
+        radial-gradient(circle at 50% calc(100% - 28px), rgba(43,33,23,0.48) 0 4px, transparent 5px),
+        repeating-linear-gradient(0deg, #5b4127 0 10px, #3d2a18 10px 16px);
+    }
+
+    :root[data-theme="casefile"] .topbar::after {
+      content: "";
+      display: none;
+      position: absolute;
+      top: 2px;
+      right: 252px;
+      padding: 5px 12px;
+      border: 3px solid rgba(143,47,27,0.78);
+      color: rgba(143,47,27,0.82);
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 0;
+      transform: rotate(-10deg);
+      opacity: 0.78;
+    }
+
+    :root[data-theme="casefile"] .theme-art {
+      display: none;
+      top: 28px;
+      right: 258px;
+      width: 92px;
+      height: 52px;
+      opacity: 0.78;
+      background:
+        linear-gradient(#2b2117, #2b2117) 26px 8px / 40px 18px no-repeat,
+        linear-gradient(#2b2117, #2b2117) 10px 26px / 72px 8px no-repeat,
+        linear-gradient(90deg, transparent, rgba(143,47,27,0.78), transparent) 24px 22px / 44px 4px no-repeat;
+      border-radius: 26px 26px 10px 10px;
+      filter: drop-shadow(0 3px 0 rgba(46,32,17,0.24));
+      transform: rotate(-4deg);
+    }
+
+    :root[data-theme="casefile"] .theme-art::before {
+      content: "";
+      position: absolute;
+      right: -3px;
+      bottom: 5px;
+      width: 42px;
+      height: 18px;
+      border-right: 5px solid #5b4127;
+      border-bottom: 5px solid #5b4127;
+      border-radius: 0 0 22px 0;
+      transform: rotate(-17deg);
+      transform-origin: right bottom;
+    }
+
+    :root[data-theme="casefile"] .theme-art::after {
+      content: "";
+      position: absolute;
+      right: -10px;
+      bottom: 4px;
+      width: 15px;
+      height: 19px;
+      border: 4px solid #5b4127;
+      border-top-width: 7px;
+      border-radius: 4px 4px 9px 9px;
+      background: rgba(143,47,27,0.16);
+      transform: rotate(-17deg);
+    }
+
+    :root[data-theme="casefile"] h1,
+    :root[data-theme="casefile"] .panel-title,
+    :root[data-theme="casefile"] .theme {
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    :root[data-theme="casefile"] .eyebrow::after {
+      content: " / 사건번호 SC-0726";
+      color: var(--orange-ink);
+    }
+
+    :root[data-theme="casefile"] .panel,
+    :root[data-theme="casefile"] .guide,
+    :root[data-theme="casefile"] .candidate,
+    :root[data-theme="casefile"] .table-wrap {
+      position: relative;
+      border-color: rgba(43,33,23,0.72);
+      background-image:
+        linear-gradient(115deg, rgba(255,255,255,0.22), transparent 34%),
+        repeating-linear-gradient(0deg, rgba(43,33,23,0.035) 0 1px, transparent 1px 6px);
+    }
+
+    :root[data-theme="casefile"] .panel-header,
+    :root[data-theme="casefile"] .candidate-head {
+      position: relative;
+      background-image:
+        linear-gradient(90deg, transparent 0 62%, rgba(18,18,18,0.88) 62% 76%, transparent 76% 80%, rgba(18,18,18,0.88) 80% 93%, transparent 93%),
+        linear-gradient(180deg, rgba(255,255,255,0.16), transparent);
+    }
+
+    :root[data-theme="casefile"] .guide::after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      right: 34px;
+      width: 18px;
+      height: 44px;
+      border: 3px solid rgba(43,33,23,0.62);
+      border-left-color: transparent;
+      border-radius: 18px;
+      transform: rotate(8deg);
+      pointer-events: none;
+    }
+
+    :root[data-theme="casefile"] .button.primary,
+    :root[data-theme="casefile"] .button.blue {
+      border-color: rgba(43,33,23,0.82);
+      background: linear-gradient(180deg, #5b4127, #2b2117);
+      color: #f5e7c2;
+      text-transform: uppercase;
+    }
+
+    :root[data-theme="casefile"] .candidate-score {
+      position: relative;
+      z-index: 1;
+      border-style: dashed;
+      border-color: rgba(43,33,23,0.8);
+      background: #f4e7bd;
+      color: var(--orange-ink);
+      box-shadow: 0 0 0 3px rgba(244,231,189,0.92), 0 6px 14px rgba(46,32,17,0.16);
+    }
+
+    :root[data-theme="airport"] body {
+      background-size: 34px 34px, 34px 34px, auto;
+    }
+
+    :root[data-theme="airport"] .topbar {
+      position: relative;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #eff7ff;
+      box-shadow: none;
+      overflow: visible;
+    }
+
+    :root[data-theme="airport"] .topbar > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    :root[data-theme="airport"] .topbar::before {
+      content: "";
+      display: none;
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      color: #f6b91a;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    :root[data-theme="airport"] .topbar::after {
+      content: "";
+      display: none;
+      position: absolute;
+      right: 18px;
+      bottom: 12px;
+      padding: 4px 8px;
+      border: 1px solid rgba(246,185,26,0.55);
+      background: rgba(0,0,0,0.24);
+      color: #f6b91a;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    :root[data-theme="airport"] .theme-art {
+      display: block;
+      top: 22px;
+      right: 260px;
+      width: 96px;
+      height: 38px;
+      background: #f6b91a;
+      clip-path: polygon(0 45%, 61% 45%, 78% 12%, 92% 12%, 77% 48%, 96% 48%, 96% 58%, 77% 58%, 92% 88%, 78% 88%, 61% 58%, 0 58%);
+      filter: drop-shadow(0 0 12px rgba(246,185,26,0.38));
+      opacity: 0.92;
+      transform: rotate(-5deg);
+    }
+
+    :root[data-theme="airport"] .theme-art::before {
+      content: "";
+      position: absolute;
+      left: 31px;
+      top: -6px;
+      width: 34px;
+      height: 20px;
+      background: #eff7ff;
+      clip-path: polygon(0 100%, 55% 0, 100% 100%);
+      opacity: 0.88;
+    }
+
+    :root[data-theme="airport"] .theme-art::after {
+      content: "";
+      position: absolute;
+      left: -42px;
+      top: 18px;
+      width: 34px;
+      height: 2px;
+      background: repeating-linear-gradient(90deg, rgba(246,185,26,0.8) 0 6px, transparent 6px 11px);
+    }
+
+    :root[data-theme="airport"] h1,
+    :root[data-theme="airport"] .eyebrow,
+    :root[data-theme="airport"] .panel-title,
+    :root[data-theme="airport"] .theme {
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    :root[data-theme="airport"] .topbar h1 {
+      color: #102132;
+    }
+
+    :root[data-theme="airport"] .topbar .lead,
+    :root[data-theme="airport"] .topbar .eyebrow {
+      color: #42566f;
+    }
+
+    :root[data-theme="airport"] .eyebrow::after {
+      content: " / FLIGHT CHAIN-0726";
+      color: #f6b91a;
+    }
+
+    :root[data-theme="airport"] .guide {
+      position: relative;
+    }
+
+    :root[data-theme="airport"] .guide::after {
+      content: "출국확인";
+      position: absolute;
+      top: -9px;
+      right: 28px;
+      padding: 5px 10px;
+      border: 2px solid rgba(0,103,168,0.6);
+      border-radius: 50%;
+      color: rgba(0,103,168,0.68);
+      font-size: 13px;
+      font-weight: 900;
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+
+    :root[data-theme="airport"] .panel-header,
+    :root[data-theme="airport"] .candidate-head {
+      background:
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 5px),
+        #102132;
+      color: #eff7ff;
+    }
+
+    :root[data-theme="airport"] .panel-header .panel-description,
+    :root[data-theme="airport"] .candidate-head .candidate-index,
+    :root[data-theme="airport"] .candidate-head .candidate-window {
+      color: #bdd1e4;
+    }
+
+    :root[data-theme="airport"] .candidate {
+      position: relative;
+      background:
+        linear-gradient(90deg, transparent 0 calc(100% - 112px), rgba(0,103,168,0.08) calc(100% - 112px)),
+        var(--panel);
+    }
+
+    :root[data-theme="airport"] .candidate::before {
+      content: "BOARDING PASS";
+      position: absolute;
+      right: 16px;
+      top: 76px;
+      color: rgba(0,103,168,0.32);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0;
+      pointer-events: none;
+    }
+
+    :root[data-theme="airport"] .candidate::after {
+      content: "";
+      position: absolute;
+      right: 14px;
+      bottom: 12px;
+      width: 78px;
+      height: 32px;
+      background:
+        repeating-linear-gradient(90deg, #102132 0 2px, transparent 2px 4px, #102132 4px 7px, transparent 7px 11px);
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    :root[data-theme="airport"] .candidate-score {
+      position: relative;
+      border-style: dashed;
+      background: #ffffff;
+      color: var(--teal);
+    }
+
+    :root[data-theme="airport"] .candidate-score::before {
+      content: "GATE";
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    :root[data-theme="airport"] .button.primary,
+    :root[data-theme="airport"] .button.blue {
+      border-color: #00598f;
+      background: linear-gradient(135deg, #0067a8, #00a0df);
+      color: #ffffff;
+    }
+
+    :root[data-theme="airport"] .pill.ok {
+      background: rgba(246,185,26,0.18);
+      color: #6d4b00;
+    }
+
+    :root[data-theme="arcade"] .theme-art,
+    :root[data-theme="airport"] .theme-art {
+      position: static;
+      z-index: auto;
+      flex: 0 0 auto;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      box-shadow: none;
+      clip-path: none;
+      pointer-events: none;
+      transform-origin: center;
+    }
+
+    :root[data-theme="arcade"] .theme-art {
+      display: inline-block;
+      width: 38px;
+      height: 38px;
+      background-image: url("assets/theme-arcade-character.png");
+      filter: drop-shadow(0 0 8px rgba(0,245,212,0.46));
+      image-rendering: pixelated;
+      opacity: 0.96;
+      transform: none;
+    }
+
+    :root[data-theme="airport"] .theme-art {
+      display: inline-block;
+      width: 76px;
+      height: 38px;
+      background-image: url("assets/theme-airport-plane.png");
+      filter: drop-shadow(0 4px 8px rgba(16, 33, 50, 0.18));
+      opacity: 0.88;
+      transform: none;
+    }
+
+    :root[data-theme="casefile"] .topbar::after,
+    :root[data-theme="casefile"] .theme-art,
+    :root[data-theme="casefile"] .theme-art::before,
+    :root[data-theme="casefile"] .theme-art::after,
+    :root[data-theme="airport"] .theme-art::before,
+    :root[data-theme="airport"] .theme-art::after {
+      content: none;
+      display: none;
+      background: none;
+    }
+
+    @media (min-width: 981px) {
+      .planner-panel {
+        position: sticky;
+        top: 12px;
+      }
+
+      .planner-panel .results {
+        max-height: calc(100vh - 338px);
+        min-height: 300px;
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+      }
+    }
+
     @media (max-width: 980px) {
       body {
         padding: 10px;
@@ -1108,12 +1889,32 @@
         grid-template-columns: 1fr;
       }
 
+      .planner-panel {
+        order: -1;
+      }
+
+      .input-panel {
+        order: 1;
+      }
+
+      .planner-panel .results {
+        max-height: min(560px, calc(100vh - 286px));
+        min-height: 260px;
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+      }
+
       .guide {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .settings {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .theme-picker {
+        left: 0;
+        right: auto;
       }
     }
 
@@ -1123,12 +1924,47 @@
         flex-direction: column;
       }
 
+      .theme-art {
+        opacity: 0.55;
+        transform-origin: top right;
+      }
+
+      :root[data-theme="arcade"] .theme-art {
+        width: 32px;
+        height: 32px;
+        transform: none;
+      }
+
+      :root[data-theme="casefile"] .theme-art {
+        display: none;
+      }
+
+      :root[data-theme="airport"] .theme-art {
+        width: 58px;
+        height: 30px;
+        transform: none;
+      }
+
       .top-actions {
         justify-content: flex-start;
       }
 
       .guide {
-        grid-template-columns: 1fr;
+        display: none;
+      }
+
+      .panel-header {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .panel-header > .button,
+      .panel-header > .pill {
+        align-self: flex-start;
+      }
+
+      .panel-title {
+        white-space: nowrap;
       }
 
       .form-grid,
@@ -1150,8 +1986,72 @@
         justify-content: stretch;
       }
 
+      .result-buttons .button.primary {
+        order: -1;
+      }
+
       .result-buttons .button {
         flex: 1 1 150px;
+      }
+
+      .planner-theme-choices {
+        max-height: 132px;
+      }
+
+      table {
+        min-width: 0;
+      }
+
+      .table-wrap {
+        overflow: visible;
+        border: 0;
+      }
+
+      .table-wrap thead {
+        display: none;
+      }
+
+      .table-wrap table,
+      .table-wrap tbody,
+      .table-wrap tr,
+      .table-wrap td {
+        display: block;
+        width: 100%;
+      }
+
+      .table-wrap tr {
+        margin-bottom: 8px;
+        border: var(--border-size) solid var(--line);
+        border-radius: var(--panel-radius);
+        background: var(--panel);
+        overflow: hidden;
+      }
+
+      .table-wrap td {
+        display: grid;
+        grid-template-columns: 84px 1fr;
+        gap: 8px;
+        padding: 8px 10px;
+        border-bottom: var(--border-size) solid var(--row-line);
+      }
+
+      .table-wrap td::before {
+        content: attr(data-label);
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .table-wrap td:last-child {
+        border-bottom: 0;
+      }
+
+      .table-wrap td[colspan] {
+        display: block;
+      }
+
+      .table-wrap td[colspan]::before {
+        content: none;
       }
 
       .stop {
@@ -1162,6 +2062,17 @@
       .transfer {
         margin-left: 0;
       }
+
+      .candidate-head {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .candidate-score {
+        justify-items: start;
+        min-width: 0;
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -1170,33 +2081,50 @@
     <header class="topbar">
       <div class="brand">
         <p class="eyebrow">방탈출 연방 시간표</p>
-        <h1>서울 온 김에 연방 해야지</h1>
+        <div class="title-line">
+          <h1>서울 온 김에 연방 해야지</h1>
+          <span class="theme-art" aria-hidden="true"></span>
+        </div>
         <p class="lead">By 달물결</p>
       </div>
       <div class="top-actions">
-        <div class="theme-picker" aria-label="색 테마">
-          <button class="theme-choice active" data-color-theme="glass" type="button" aria-pressed="true">
-            <span class="swatch" style="--swatch: linear-gradient(135deg, rgba(255,255,255,0.9), #7c3aed);"></span>
-            글래스
-          </button>
-          <button class="theme-choice" data-color-theme="vaporwave" type="button" aria-pressed="false">
-            <span class="swatch" style="--swatch: linear-gradient(135deg, #ff6bd6, #6df7ff);"></span>
-            베이퍼웨이브
-          </button>
-          <button class="theme-choice" data-color-theme="arcade" type="button" aria-pressed="false">
-            <span class="swatch" style="--swatch: linear-gradient(135deg, #00f5d4, #ff2ed1, #ffdf3d);"></span>
-            아케이드
-          </button>
-          <button class="theme-choice" data-color-theme="win98" type="button" aria-pressed="false">
-            <span class="swatch" style="--swatch: linear-gradient(135deg, #008080, #c0c0c0, #000080);"></span>
-            윈도우98
-          </button>
-          <button class="theme-choice" data-color-theme="dark" type="button" aria-pressed="false">
-            <span class="swatch" style="--swatch: linear-gradient(135deg, #070b12, #60a5fa);"></span>
-            다크
-          </button>
-        </div>
         <span class="saved-badge" id="saveState">자동 저장됨</span>
+        <details class="theme-menu">
+          <summary class="theme-toggle">
+            <span class="swatch" id="activeThemeSwatch" style="--swatch: linear-gradient(135deg, rgba(255,255,255,0.9), #7c3aed);"></span>
+            <span id="activeThemeName">글래스</span>
+          </summary>
+          <div class="theme-picker" aria-label="색 테마">
+            <button class="theme-choice active" data-color-theme="glass" type="button" aria-pressed="true">
+              <span class="swatch" style="--swatch: linear-gradient(135deg, rgba(255,255,255,0.9), #7c3aed);"></span>
+              글래스
+            </button>
+            <button class="theme-choice" data-color-theme="vaporwave" type="button" aria-pressed="false">
+              <span class="swatch" style="--swatch: linear-gradient(135deg, #ff6bd6, #6df7ff);"></span>
+              베이퍼웨이브
+            </button>
+            <button class="theme-choice" data-color-theme="arcade" type="button" aria-pressed="false">
+              <span class="swatch" style="--swatch: linear-gradient(135deg, #00f5d4, #ff2ed1, #ffdf3d);"></span>
+              아케이드
+            </button>
+            <button class="theme-choice" data-color-theme="win98" type="button" aria-pressed="false">
+              <span class="swatch" style="--swatch: linear-gradient(135deg, #008080, #c0c0c0, #000080);"></span>
+              윈도우98
+            </button>
+            <button class="theme-choice" data-color-theme="casefile" type="button" aria-pressed="false">
+              <span class="swatch" style="--swatch: linear-gradient(135deg, #efe1b8, #2b2117 58%, #8f2f1b);"></span>
+              수사노트
+            </button>
+            <button class="theme-choice" data-color-theme="airport" type="button" aria-pressed="false">
+              <span class="swatch" style="--swatch: linear-gradient(135deg, #102132, #0067a8, #f6b91a);"></span>
+              공항
+            </button>
+            <button class="theme-choice" data-color-theme="dark" type="button" aria-pressed="false">
+              <span class="swatch" style="--swatch: linear-gradient(135deg, #070b12, #60a5fa);"></span>
+              다크
+            </button>
+          </div>
+        </details>
       </div>
     </header>
 
@@ -1220,13 +2148,12 @@
     </section>
 
     <div class="workspace">
-      <section class="panel">
+      <section class="panel input-panel">
         <div class="panel-header">
           <div class="panel-heading">
             <h2 class="panel-title">입력</h2>
             <p class="panel-description">샘플을 고쳐 쓰거나 새 매장과 테마를 추가하세요.</p>
           </div>
-          <button class="button warn" id="resetButton" type="button">샘플 복원</button>
         </div>
 
         <nav class="tabs" aria-label="입력 탭">
@@ -1402,7 +2329,7 @@
         </div>
       </section>
 
-      <section class="panel">
+      <section class="panel planner-panel">
         <div class="panel-header">
           <div class="panel-heading">
             <h2 class="panel-title">시간표 만들기</h2>
@@ -1430,11 +2357,19 @@
           </div>
         </div>
 
+        <div class="planner-theme-panel">
+          <div class="mini-section-head">
+            <strong>이번 연방 테마</strong>
+            <span id="plannerThemeSummary">0개 선택</span>
+          </div>
+          <div class="planner-theme-choices" id="plannerThemeChoices"></div>
+        </div>
+
         <div class="result-actions">
           <div class="summary" id="summary">효율순으로 후보를 생성해보세요.</div>
           <div class="result-buttons">
-            <button class="button blue" id="exportResultsButton" type="button">엑셀 내보내기</button>
             <button class="button primary" id="generateButton" type="button">시간표 생성</button>
+            <button class="button blue" id="exportResultsButton" type="button">엑셀 내보내기</button>
           </div>
         </div>
 
@@ -1459,6 +2394,8 @@
         vaporwave: "#16092b",
         arcade: "#05060d",
         win98: "#008080",
+        casefile: "#d7bf83",
+        airport: "#102132",
         dark: "#070b12"
       };
 
@@ -1533,13 +2470,17 @@
         exportBackupButton: document.querySelector("#exportBackupButton"),
         importBackupButton: document.querySelector("#importBackupButton"),
         backupFileInput: document.querySelector("#backupFileInput"),
-        resetButton: document.querySelector("#resetButton"),
         themeButtons: Array.from(document.querySelectorAll("[data-color-theme]")),
+        activeThemeName: document.querySelector("#activeThemeName"),
+        activeThemeSwatch: document.querySelector("#activeThemeSwatch"),
+        themeMenu: document.querySelector(".theme-menu"),
         themeMeta: document.querySelector('meta[name="theme-color"]'),
         dayStart: document.querySelector("#dayStart"),
         dayEnd: document.querySelector("#dayEnd"),
         startTheme: document.querySelector("#startTheme"),
         maxResults: document.querySelector("#maxResults"),
+        plannerThemeChoices: document.querySelector("#plannerThemeChoices"),
+        plannerThemeSummary: document.querySelector("#plannerThemeSummary"),
         exportResultsButton: document.querySelector("#exportResultsButton"),
         generateButton: document.querySelector("#generateButton"),
         summary: document.querySelector("#summary"),
@@ -1716,6 +2657,13 @@
           const active = button.dataset.colorTheme === theme;
           button.classList.toggle("active", active);
           button.setAttribute("aria-pressed", String(active));
+          if (active) {
+            els.activeThemeName.textContent = button.textContent.trim();
+            const swatch = button.querySelector(".swatch");
+            if (swatch) {
+              els.activeThemeSwatch.style.setProperty("--swatch", swatch.style.getPropertyValue("--swatch"));
+            }
+          }
         });
         if (shouldPersist) {
           localStorage.setItem(COLOR_THEME_STORAGE, theme);
@@ -1729,6 +2677,7 @@
         renderEditState();
         renderStores();
         renderThemes();
+        renderPlannerThemeChoices();
         renderTravel();
 
         const slotCount = data.themes.reduce((sum, theme) => sum + theme.slots.length, 0);
@@ -1815,11 +2764,11 @@
           const count = data.themes.filter((theme) => theme.storeId === store.id).length;
           return `
             <tr>
-              <td>${escapeHtml(store.name)}</td>
-              <td>${escapeHtml(store.area || "-")}</td>
-              <td>${escapeHtml(store.address || "-")}</td>
-              <td>${count}</td>
-              <td>
+              <td data-label="매장">${escapeHtml(store.name)}</td>
+              <td data-label="지역">${escapeHtml(store.area || "-")}</td>
+              <td data-label="주소">${escapeHtml(store.address || "-")}</td>
+              <td data-label="테마 수">${count}</td>
+              <td data-label="관리">
                 <button class="mini-button" data-edit-store="${escapeHtml(store.id)}" type="button">수정</button>
                 <button class="mini-button danger" data-delete-store="${escapeHtml(store.id)}" type="button">삭제</button>
               </td>
@@ -1837,16 +2786,32 @@
         const selectedThemeIds = getSelectedThemeIds();
         els.themeRows.innerHTML = data.themes.map((theme) => `
           <tr>
-            <td><input type="checkbox" data-select-theme="${escapeHtml(theme.id)}" ${selectedThemeIds.has(theme.id) ? "checked" : ""} aria-label="${escapeHtml(theme.name)} 선택"></td>
-            <td>${escapeHtml(theme.name)}</td>
-            <td>${escapeHtml(storeName(theme.storeId))}</td>
-            <td>${theme.duration}분</td>
-            <td>${theme.slots.map(escapeHtml).join(", ")}</td>
-            <td>
+            <td data-label="선택"><input type="checkbox" data-select-theme="${escapeHtml(theme.id)}" ${selectedThemeIds.has(theme.id) ? "checked" : ""} aria-label="${escapeHtml(theme.name)} 선택"></td>
+            <td data-label="테마">${escapeHtml(theme.name)}</td>
+            <td data-label="매장">${escapeHtml(storeName(theme.storeId))}</td>
+            <td data-label="소요">${theme.duration}분</td>
+            <td data-label="시작시간">${theme.slots.map(escapeHtml).join(", ")}</td>
+            <td data-label="관리">
               <button class="mini-button" data-edit-theme="${escapeHtml(theme.id)}" type="button">수정</button>
               <button class="mini-button danger" data-delete-theme="${escapeHtml(theme.id)}" type="button">삭제</button>
             </td>
           </tr>
+        `).join("");
+      }
+
+      function renderPlannerThemeChoices() {
+        const selectedThemeIds = getSelectedThemeIds();
+        els.plannerThemeSummary.textContent = `${selectedThemeIds.size}/${data.themes.length}개 선택`;
+        if (data.themes.length === 0) {
+          els.plannerThemeChoices.innerHTML = `<div class="empty" style="padding: 12px;">테마를 먼저 추가하세요.</div>`;
+          return;
+        }
+
+        els.plannerThemeChoices.innerHTML = data.themes.map((theme) => `
+          <label class="theme-chip">
+            <input type="checkbox" data-planner-select-theme="${escapeHtml(theme.id)}" ${selectedThemeIds.has(theme.id) ? "checked" : ""}>
+            <span>${escapeHtml(theme.name)}</span>
+          </label>
         `).join("");
       }
 
@@ -1866,10 +2831,10 @@
 
         els.travelRows.innerHTML = sorted.map((item) => `
           <tr>
-            <td>${escapeHtml(storeName(item.fromStoreId))}</td>
-            <td>${escapeHtml(storeName(item.toStoreId))}</td>
-            <td>${item.minutes}분</td>
-            <td>
+            <td data-label="출발">${escapeHtml(storeName(item.fromStoreId))}</td>
+            <td data-label="도착">${escapeHtml(storeName(item.toStoreId))}</td>
+            <td data-label="이동">${item.minutes}분</td>
+            <td data-label="관리">
               <button class="mini-button" data-edit-travel="${escapeHtml(item.fromStoreId)}|${escapeHtml(item.toStoreId)}" type="button">수정</button>
               <button class="mini-button danger" data-delete-travel="${escapeHtml(item.fromStoreId)}|${escapeHtml(item.toStoreId)}" type="button">삭제</button>
             </td>
@@ -2811,7 +3776,7 @@
         const storeCount = new Set(candidate.path.map((item) => item.storeId)).size;
         const waitMax = maxWait(candidate);
         const cost = efficiencyCost(candidate);
-        const chainPills = [
+        const chainMetrics = [
           candidate.sameStoreChainCount > 0 ? `<span class="pill ok">같은 매장 ${candidate.sameStoreChainCount}회</span>` : "",
           candidate.sameAreaChainCount > 0 ? `<span class="pill">같은 지역 ${candidate.sameAreaChainCount}회</span>` : ""
         ].join("");
@@ -2841,24 +3806,28 @@
         return `
           <article class="candidate">
             <div class="candidate-head">
-              <div class="candidate-title">
-                <span>후보 ${index + 1}</span>
-                <span class="pill ok">${candidate.count}연방</span>
-                <span class="pill">${formatTime(candidate.start)}-${formatTime(candidate.end)}</span>
-                <span class="pill ok">최대 대기 ${waitMax}분</span>
-                <span class="pill">대기+이동 ${cost}분</span>
-                ${chainPills}
+              <div class="candidate-rank">
+                <span class="candidate-index">후보 ${index + 1}</span>
+                <strong>${candidate.count}연방</strong>
+                <span class="candidate-window">${formatTime(candidate.start)}-${formatTime(candidate.end)} · ${storeCount}개 매장</span>
               </div>
-              <span class="pill ${hasDefault ? "warn" : "ok"}">${storeCount}개 매장</span>
+              <div class="candidate-score">
+                <span>대기+이동</span>
+                <strong>${cost}분</strong>
+              </div>
+            </div>
+            <div class="candidate-metrics">
+              <span class="pill ok">최대 대기 ${waitMax}분</span>
+              <span class="pill">이동 ${candidate.totalTravel}분</span>
+              <span class="pill">대기 ${candidate.totalWait}분</span>
+              ${chainMetrics}
+              <span class="pill ${hasDefault ? "warn" : "ok"}">${hasDefault ? "기본 이동 포함" : "이동시간 등록됨"}</span>
             </div>
             <div class="timeline">
               ${stops}
-              <div class="button-row" style="padding-top: 8px;">
+              <div class="candidate-foot">
                 <span class="pill">총 ${duration}분</span>
                 <span class="pill">플레이 ${candidate.totalPlay}분</span>
-                <span class="pill">이동 ${candidate.totalTravel}분</span>
-                <span class="pill">대기 ${candidate.totalWait}분</span>
-                <span class="pill">효율 ${cost}분</span>
               </div>
             </div>
           </article>
@@ -2877,6 +3846,9 @@
       els.themeButtons.forEach((button) => {
         button.addEventListener("click", () => {
           applyColorTheme(button.dataset.colorTheme || FALLBACK_COLOR_THEME);
+          if (els.themeMenu) {
+            els.themeMenu.open = false;
+          }
         });
       });
 
@@ -2907,6 +3879,25 @@
           data.settings = readSettings();
           saveData();
         });
+      });
+
+      els.plannerThemeChoices.addEventListener("change", (event) => {
+        const id = event.target.dataset.plannerSelectTheme;
+        if (!id) {
+          return;
+        }
+
+        const selected = getSelectedThemeIds();
+        if (event.target.checked) {
+          selected.add(id);
+        } else {
+          selected.delete(id);
+        }
+
+        setSelectedThemeIds(Array.from(selected));
+        saveData();
+        render();
+        generateSchedules();
       });
 
       els.storeRows.addEventListener("click", (event) => {
@@ -2968,13 +3959,6 @@
 
       els.backupFileInput.addEventListener("change", () => {
         importBackupFile(els.backupFileInput.files[0]);
-      });
-
-      els.resetButton.addEventListener("click", () => {
-        data = normalizeData(clone(sampleData));
-        render();
-        persistData();
-        generateSchedules();
       });
 
       [els.storeName, els.storeArea, els.storeAddress].forEach((input) => {
