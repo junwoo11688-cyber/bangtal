@@ -42,6 +42,30 @@
       font-display: swap;
     }
 
+    @font-face {
+      font-family: "Escape Vaporwave";
+      src: url("fonts/Yangjin.otf") format("opentype");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Escape Slasher";
+      src: url("fonts/Shilla-Culture-M.otf") format("opentype");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Escape Slasher Text";
+      src: url("fonts/ChosunCentennial.otf") format("opentype");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Escape Danpyeonseon";
+      src: url("fonts/NanumMyeongjo.otf") format("opentype");
+      font-display: swap;
+    }
+
     :root {
       color-scheme: light;
       --bg: #f2f5f7;
@@ -114,9 +138,9 @@
       --row-line: rgba(255, 255, 255, 0.12);
       --shadow: 0 20px 44px rgba(0,0,0,0.42), 0 0 34px rgba(255,107,214,0.18);
       --shadow-soft: 0 12px 28px rgba(0,0,0,0.32), 0 0 20px rgba(109,247,255,0.12);
-      --font-main: "MS PGothic", "Yu Gothic UI", "Malgun Gothic", "Trebuchet MS", sans-serif;
-      --font-display: "Arial Black", "MS PGothic", "Yu Gothic UI", "Malgun Gothic", sans-serif;
-      --font-ui: "MS PGothic", "Yu Gothic UI", "Malgun Gothic", "Trebuchet MS", sans-serif;
+      --font-main: "Escape Vaporwave", "MS PGothic", "Yu Gothic UI", "Malgun Gothic", "Trebuchet MS", sans-serif;
+      --font-display: "Escape Vaporwave", "Arial Black", "MS PGothic", "Yu Gothic UI", "Malgun Gothic", sans-serif;
+      --font-ui: "Escape Vaporwave", "MS PGothic", "Yu Gothic UI", "Malgun Gothic", "Trebuchet MS", sans-serif;
       --panel-radius: 6px;
       --control-radius: 5px;
       --small-radius: 3px;
@@ -128,6 +152,98 @@
         linear-gradient(90deg, rgba(109,247,255,0.14) 1px, transparent 1px),
         radial-gradient(circle at 22% 16%, rgba(255,107,214,0.34), transparent 22%),
         radial-gradient(circle at 82% 8%, rgba(109,247,255,0.22), transparent 20%);
+    }
+
+    :root[data-theme="slasher"] {
+      color-scheme: dark;
+      --bg: #090202;
+      --panel: #170606;
+      --line: #7f1d1d;
+      --line-strong: #ef1b2d;
+      --ink: #fff7ed;
+      --muted: #fca5a5;
+      --faint: #250707;
+      --soft: #2b0a0a;
+      --input-bg: #0d0303;
+      --bg-top: #310404;
+      --teal: #ff2638;
+      --teal-soft: rgba(255, 38, 56, 0.17);
+      --panel-header-bg: linear-gradient(135deg, rgba(239,27,45,0.34), rgba(14,2,2,0.96));
+      --blue: #facc15;
+      --blue-soft: rgba(250, 204, 21, 0.16);
+      --orange: #fb923c;
+      --orange-soft: rgba(251, 146, 60, 0.14);
+      --orange-line: rgba(251, 146, 60, 0.44);
+      --orange-ink: #fed7aa;
+      --success-soft: rgba(255, 38, 56, 0.14);
+      --success-ink: #fecaca;
+      --danger-soft: rgba(239, 27, 45, 0.22);
+      --danger-line: rgba(248, 113, 113, 0.62);
+      --rose: #ff3347;
+      --button-ink-on-color: #fff7ed;
+      --row-line: rgba(248, 113, 113, 0.2);
+      --shadow: 0 0 0 2px rgba(239,27,45,0.34), 0 22px 46px rgba(0,0,0,0.68), 0 0 28px rgba(239,27,45,0.22);
+      --shadow-soft: 0 0 0 1px rgba(239,27,45,0.28), 0 14px 28px rgba(0,0,0,0.48);
+      --font-main: "Escape Slasher Text", "Malgun Gothic", "Apple SD Gothic Neo", serif;
+      --font-display: "Escape Slasher", "Malgun Gothic", "Apple SD Gothic Neo", serif;
+      --font-ui: "Escape Slasher Text", "Malgun Gothic", "Apple SD Gothic Neo", serif;
+      --panel-radius: 3px;
+      --control-radius: 2px;
+      --small-radius: 2px;
+      --border-size: 2px;
+      --button-shadow: inset 0 -3px 0 rgba(0,0,0,0.48), 0 0 16px rgba(239,27,45,0.28);
+      --section-ink: #fee2e2;
+      --texture:
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 5px),
+        repeating-linear-gradient(112deg, rgba(239,27,45,0.12) 0 2px, transparent 2px 18px),
+        radial-gradient(circle at 16% 12%, rgba(239,27,45,0.42), transparent 18%),
+        radial-gradient(circle at 86% 22%, rgba(127,29,29,0.36), transparent 16%);
+    }
+
+    :root[data-theme="danpyeonseon"] {
+      color-scheme: light;
+      --bg: #080604;
+      --panel: #efe6d2;
+      --line: #1a1410;
+      --line-strong: #090706;
+      --ink: #17120e;
+      --muted: #67584b;
+      --faint: #ddd0b8;
+      --soft: #d5c4a8;
+      --input-bg: #fbf5e8;
+      --bg-top: #0e3435;
+      --teal: #087878;
+      --teal-soft: rgba(8, 120, 120, 0.14);
+      --panel-header-bg: linear-gradient(135deg, #0b6f70, #0a302f 72%);
+      --blue: #24445d;
+      --blue-soft: rgba(36, 68, 93, 0.14);
+      --orange: #c7852f;
+      --orange-soft: rgba(199, 133, 47, 0.16);
+      --orange-line: rgba(125, 86, 48, 0.46);
+      --orange-ink: #6d3f17;
+      --success-soft: rgba(8, 120, 120, 0.16);
+      --success-ink: #075f5f;
+      --danger-soft: rgba(152, 58, 38, 0.14);
+      --danger-line: rgba(92, 36, 27, 0.46);
+      --rose: #7d2e24;
+      --button-ink-on-color: #fff9ed;
+      --row-line: rgba(26, 20, 16, 0.2);
+      --shadow: 0 0 0 3px rgba(8,6,4,0.8), 0 20px 40px rgba(0,0,0,0.42);
+      --shadow-soft: 0 0 0 2px rgba(26,20,16,0.18), 0 12px 22px rgba(0,0,0,0.18);
+      --font-main: "Escape Danpyeonseon", "Nanum Myeongjo", "Batang", "AppleMyungjo", serif;
+      --font-display: "Escape Danpyeonseon", "Nanum Myeongjo", "Batang", "AppleMyungjo", serif;
+      --font-ui: "Escape Danpyeonseon", "Nanum Myeongjo", "Batang", "AppleMyungjo", serif;
+      --panel-radius: 2px;
+      --control-radius: 2px;
+      --small-radius: 1px;
+      --border-size: 2px;
+      --button-shadow: inset 0 0 0 1px rgba(255,249,237,0.28), 3px 3px 0 rgba(9,7,6,0.42);
+      --section-ink: #fff9ed;
+      --texture:
+        repeating-linear-gradient(0deg, rgba(239,230,210,0.06) 0 1px, transparent 1px 9px),
+        repeating-linear-gradient(90deg, rgba(8,120,120,0.12) 0 2px, transparent 2px 18px),
+        radial-gradient(circle at 18% 12%, rgba(8,120,120,0.24), transparent 24%),
+        linear-gradient(180deg, rgba(8,6,4,0.12), rgba(8,6,4,0.68));
     }
 
     :root[data-theme="arcade"] {
@@ -586,6 +702,10 @@
       white-space: nowrap;
     }
 
+    .theme-choice[hidden] {
+      display: none !important;
+    }
+
     .theme-choice.active {
       border-color: var(--teal);
       color: var(--teal);
@@ -890,6 +1010,13 @@
       color: var(--rose);
     }
 
+    .table-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
     .table-wrap {
       overflow-x: auto;
       border: var(--border-size) solid var(--line);
@@ -921,6 +1048,13 @@
 
     tr:last-child td {
       border-bottom: 0;
+    }
+
+    .text-link {
+      color: var(--teal);
+      font-weight: 900;
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
 
     .settings {
@@ -1015,6 +1149,16 @@
       width: 18px;
       min-height: 18px;
       accent-color: var(--teal);
+    }
+
+    .bulk-check {
+      min-height: 40px;
+      padding: 0 12px;
+      border: var(--border-size) solid var(--line);
+      border-radius: var(--control-radius);
+      background: var(--soft);
+      box-shadow: var(--button-shadow);
+      cursor: pointer;
     }
 
     .result-actions {
@@ -1301,6 +1445,291 @@
     :root[data-theme="vaporwave"] .step-number {
       border: 1px solid rgba(255,255,255,0.35);
       box-shadow: 0 0 18px rgba(109,247,255,0.34);
+    }
+
+    :root[data-theme="slasher"] body {
+      background-size: auto, 84px 84px, auto, auto, auto;
+    }
+
+    :root[data-theme="slasher"] .topbar {
+      padding: 34px 16px 14px;
+      border: var(--border-size) solid var(--line-strong);
+      background:
+        linear-gradient(135deg, rgba(49,4,4,0.96), rgba(8,1,1,0.94)),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 5px);
+      box-shadow: var(--shadow);
+      overflow: visible;
+    }
+
+    :root[data-theme="slasher"] .topbar > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    :root[data-theme="slasher"] .topbar::before {
+      content: "WARNING  KEEP OUT  WARNING  KEEP OUT";
+      position: absolute;
+      left: -10px;
+      right: -10px;
+      top: 0;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      padding-left: 18px;
+      background: repeating-linear-gradient(135deg, #facc15 0 14px, #120202 14px 28px);
+      color: #130202;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.24);
+      transform: rotate(-1deg);
+      transform-origin: left top;
+      z-index: 0;
+    }
+
+    :root[data-theme="slasher"] h1,
+    :root[data-theme="slasher"] .panel-title,
+    :root[data-theme="slasher"] .theme,
+    :root[data-theme="slasher"] .time {
+      position: relative;
+      color: #fff7ed;
+      font-weight: 900;
+      text-shadow: 2px 2px 0 #7f1d1d, -1px 0 0 #ff2638, 0 0 16px rgba(239,27,45,0.44);
+    }
+
+    :root[data-theme="slasher"] h1 {
+      display: inline-block;
+      clip-path: polygon(0 0, 100% 0, 98% 34%, 100% 44%, 94% 53%, 100% 100%, 0 100%, 4% 61%, 0 52%, 5% 42%);
+      transform: skew(-2deg);
+    }
+
+    :root[data-theme="slasher"] h1::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 48%;
+      height: 3px;
+      background: rgba(9,2,2,0.9);
+      box-shadow: 0 1px 0 rgba(255,38,56,0.62);
+      transform: rotate(-1.5deg);
+      pointer-events: none;
+    }
+
+    :root[data-theme="slasher"] .eyebrow::before {
+      content: "REC ";
+      color: #ff2638;
+    }
+
+    :root[data-theme="slasher"] .panel,
+    :root[data-theme="slasher"] .guide-step,
+    :root[data-theme="slasher"] .candidate,
+    :root[data-theme="slasher"] .theme-choice,
+    :root[data-theme="slasher"] .saved-badge,
+    :root[data-theme="slasher"] .table-wrap {
+      border-color: var(--line-strong);
+      background:
+        linear-gradient(135deg, rgba(255,38,56,0.08), transparent 34%),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 6px),
+        var(--panel);
+      box-shadow: var(--shadow-soft);
+    }
+
+    :root[data-theme="slasher"] .panel-header,
+    :root[data-theme="slasher"] th,
+    :root[data-theme="slasher"] .candidate-head {
+      background:
+        repeating-linear-gradient(135deg, rgba(250,204,21,0.2) 0 10px, rgba(24,3,3,0.88) 10px 20px),
+        linear-gradient(135deg, rgba(239,27,45,0.42), rgba(14,2,2,0.92));
+      color: #fff7ed;
+    }
+
+    :root[data-theme="slasher"] .candidate {
+      position: relative;
+      border-left: 8px solid #ef1b2d;
+    }
+
+    :root[data-theme="slasher"] .candidate::before {
+      content: "DANGER";
+      position: absolute;
+      right: 12px;
+      bottom: 10px;
+      color: rgba(255,38,56,0.16);
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+
+    :root[data-theme="slasher"] .candidate-score {
+      background: rgba(9,2,2,0.9);
+      border-color: #facc15;
+      color: #fecaca;
+      box-shadow: inset 0 0 0 1px rgba(255,38,56,0.44);
+    }
+
+    :root[data-theme="slasher"] .button,
+    :root[data-theme="slasher"] .mini-button,
+    :root[data-theme="slasher"] .theme-toggle,
+    :root[data-theme="slasher"] .tab {
+      text-transform: uppercase;
+    }
+
+    :root[data-theme="slasher"] .button.primary,
+    :root[data-theme="slasher"] .button.blue {
+      border-color: #facc15;
+      background: linear-gradient(180deg, #ff2638, #8a0d17);
+      color: #fff7ed;
+    }
+
+    :root[data-theme="slasher"] .button.blue {
+      background: linear-gradient(180deg, #facc15, #f97316);
+      color: #120202;
+    }
+
+    :root[data-theme="slasher"] input:focus,
+    :root[data-theme="slasher"] select:focus,
+    :root[data-theme="slasher"] textarea:focus {
+      border-color: #ff2638;
+      box-shadow: 0 0 0 3px rgba(255,38,56,0.24);
+    }
+
+    :root[data-theme="danpyeonseon"] body {
+      background-size: auto, 22px 22px, auto, auto, auto;
+    }
+
+    :root[data-theme="danpyeonseon"] .topbar {
+      padding: 18px;
+      border: 3px double #a48d6f;
+      background:
+        linear-gradient(90deg, rgba(8,6,4,0.92), rgba(8,6,4,0.76)),
+        repeating-linear-gradient(0deg, rgba(8,120,120,0.7) 0 4px, rgba(8,120,120,0.36) 4px 6px, transparent 6px 12px),
+        #0a5555;
+      box-shadow: var(--shadow);
+      overflow: visible;
+    }
+
+    :root[data-theme="danpyeonseon"] .topbar::before {
+      content: "短篇選";
+      position: absolute;
+      right: 16px;
+      bottom: 12px;
+      color: rgba(239,230,210,0.2);
+      font-size: 44px;
+      font-weight: 900;
+      letter-spacing: 6px;
+      pointer-events: none;
+    }
+
+    :root[data-theme="danpyeonseon"] .topbar > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    :root[data-theme="danpyeonseon"] h1,
+    :root[data-theme="danpyeonseon"] .topbar .eyebrow,
+    :root[data-theme="danpyeonseon"] .topbar .lead {
+      color: #fff9ed;
+      text-shadow: 2px 2px 0 #090706, 0 0 1px #090706;
+    }
+
+    :root[data-theme="danpyeonseon"] h1 {
+      font-weight: 900;
+    }
+
+    :root[data-theme="danpyeonseon"] .eyebrow::after {
+      content: " / illustrated anthology";
+      color: #c9b48e;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    :root[data-theme="danpyeonseon"] .panel,
+    :root[data-theme="danpyeonseon"] .guide-step,
+    :root[data-theme="danpyeonseon"] .candidate,
+    :root[data-theme="danpyeonseon"] .table-wrap,
+    :root[data-theme="danpyeonseon"] .theme-choice,
+    :root[data-theme="danpyeonseon"] .saved-badge {
+      border: 2px solid #17120e;
+      background:
+        repeating-linear-gradient(135deg, rgba(23,18,14,0.035) 0 1px, transparent 1px 8px),
+        repeating-linear-gradient(0deg, rgba(8,120,120,0.055) 0 1px, transparent 1px 12px),
+        var(--panel);
+      box-shadow: var(--shadow-soft);
+    }
+
+    :root[data-theme="danpyeonseon"] .panel,
+    :root[data-theme="danpyeonseon"] .candidate {
+      outline: 1px solid rgba(239,230,210,0.78);
+      outline-offset: -7px;
+    }
+
+    :root[data-theme="danpyeonseon"] .panel-header,
+    :root[data-theme="danpyeonseon"] th,
+    :root[data-theme="danpyeonseon"] .candidate-head {
+      background:
+        repeating-linear-gradient(0deg, rgba(8,6,4,0.56) 0 2px, transparent 2px 8px),
+        linear-gradient(135deg, #0b7371, #0d3c3c 64%, #17120e);
+      color: #fff9ed;
+    }
+
+    :root[data-theme="danpyeonseon"] .panel-header .panel-description,
+    :root[data-theme="danpyeonseon"] .candidate-head .candidate-index,
+    :root[data-theme="danpyeonseon"] .candidate-head .candidate-window {
+      color: #d6cbb7;
+    }
+
+    :root[data-theme="danpyeonseon"] .panel-title,
+    :root[data-theme="danpyeonseon"] .theme,
+    :root[data-theme="danpyeonseon"] .time {
+      font-weight: 900;
+      text-shadow: 1px 1px 0 rgba(255,249,237,0.44);
+    }
+
+    :root[data-theme="danpyeonseon"] .button.primary,
+    :root[data-theme="danpyeonseon"] .button.blue {
+      border-color: #090706;
+      background: linear-gradient(180deg, #0b7775, #073f3f);
+      color: #fff9ed;
+    }
+
+    :root[data-theme="danpyeonseon"] .button.blue {
+      background: linear-gradient(180deg, #c99445, #8d5b24);
+    }
+
+    :root[data-theme="danpyeonseon"] .candidate {
+      position: relative;
+      border-left: 8px solid #0b7775;
+    }
+
+    :root[data-theme="danpyeonseon"] .candidate::before {
+      content: "단편";
+      position: absolute;
+      right: 12px;
+      bottom: 10px;
+      color: rgba(23,18,14,0.12);
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      transform: rotate(-7deg);
+      pointer-events: none;
+    }
+
+    :root[data-theme="danpyeonseon"] .candidate-score {
+      border: 2px solid #17120e;
+      background:
+        repeating-linear-gradient(90deg, rgba(23,18,14,0.06) 0 1px, transparent 1px 7px),
+        #fff6df;
+      color: #0a5f5f;
+      box-shadow: inset 0 0 0 1px #c9b48e;
+    }
+
+    :root[data-theme="danpyeonseon"] input:focus,
+    :root[data-theme="danpyeonseon"] select:focus,
+    :root[data-theme="danpyeonseon"] textarea:focus {
+      border-color: #0b7775;
+      box-shadow: 0 0 0 3px rgba(8,120,120,0.18);
     }
 
     :root[data-theme="arcade"] h1,
@@ -2046,6 +2475,21 @@
         border-bottom: 0;
       }
 
+      .table-wrap td[data-label="관리"] {
+        grid-template-columns: 84px minmax(0, 1fr);
+      }
+
+      .table-wrap td[data-label="관리"] .table-actions {
+        align-items: stretch;
+      }
+
+      .table-wrap td[data-label="관리"] .table-actions .mini-button {
+        width: 58px;
+        min-width: 58px;
+        padding-inline: 0;
+        text-align: center;
+      }
+
       .table-wrap td[colspan] {
         display: block;
       }
@@ -2099,9 +2543,17 @@
               <span class="swatch" style="--swatch: linear-gradient(135deg, rgba(255,255,255,0.9), #7c3aed);"></span>
               글래스
             </button>
-            <button class="theme-choice" data-color-theme="vaporwave" type="button" aria-pressed="false">
+            <button class="theme-choice" data-color-theme="danpyeonseon" type="button" aria-pressed="false">
+              <span class="swatch" style="--swatch: linear-gradient(135deg, #080604, #087878, #efe6d2);"></span>
+              단편선
+            </button>
+            <button class="theme-choice" data-color-theme="vaporwave" type="button" aria-pressed="false" hidden>
               <span class="swatch" style="--swatch: linear-gradient(135deg, #ff6bd6, #6df7ff);"></span>
               베이퍼웨이브
+            </button>
+            <button class="theme-choice" data-color-theme="slasher" type="button" aria-pressed="false">
+              <span class="swatch" style="--swatch: linear-gradient(135deg, #090202, #ef1b2d, #facc15);"></span>
+              슬래셔
             </button>
             <button class="theme-choice" data-color-theme="arcade" type="button" aria-pressed="false">
               <span class="swatch" style="--swatch: linear-gradient(135deg, #00f5d4, #ff2ed1, #ffdf3d);"></span>
@@ -2111,7 +2563,7 @@
               <span class="swatch" style="--swatch: linear-gradient(135deg, #008080, #c0c0c0, #000080);"></span>
               윈도우98
             </button>
-            <button class="theme-choice" data-color-theme="casefile" type="button" aria-pressed="false">
+            <button class="theme-choice" data-color-theme="casefile" type="button" aria-pressed="false" hidden>
               <span class="swatch" style="--swatch: linear-gradient(135deg, #efe1b8, #2b2117 58%, #8f2f1b);"></span>
               수사노트
             </button>
@@ -2184,6 +2636,11 @@
               <input id="storeAddress" autocomplete="off" placeholder="예: 서울 마포구 양화로 123">
               <span class="field-hint">주소가 없어도 수동 이동시간으로 시간표를 만들 수 있습니다.</span>
             </div>
+            <div class="field span-2">
+              <label for="storeLink">매장 링크</label>
+              <input id="storeLink" autocomplete="off" inputmode="url" placeholder="예: https://example.com/store">
+              <span class="field-hint">예약 페이지나 지도 링크를 넣어두면 표에서 바로 열 수 있습니다.</span>
+            </div>
           </div>
           <div class="button-row">
             <button class="button primary" id="addStoreButton" type="button">매장 추가</button>
@@ -2196,6 +2653,7 @@
                   <th>매장</th>
                   <th>지역</th>
                   <th>주소</th>
+                  <th>링크</th>
                   <th>테마 수</th>
                   <th></th>
                 </tr>
@@ -2234,8 +2692,10 @@
           <div class="button-row" style="margin-top: 12px;">
             <button class="button primary" id="addThemeButton" type="button">테마 추가</button>
             <button class="button" id="cancelThemeEditButton" type="button" hidden>수정 취소</button>
-            <button class="button" id="selectAllThemesButton" type="button">테마 전체 선택</button>
-            <button class="button" id="clearThemesButton" type="button">테마 선택 해제</button>
+            <label class="check-field bulk-check" for="themeBulkToggle">
+              <input id="themeBulkToggle" type="checkbox">
+              등록 테마 전체 선택
+            </label>
           </div>
           <div class="table-wrap" style="margin-top: 12px;">
             <table>
@@ -2275,14 +2735,11 @@
               <input id="travelMinutes" inputmode="numeric" value="15">
             </div>
           </div>
-          <label class="check-field" style="padding-top: 0;">
-            <input id="travelBothWays" type="checkbox" checked>
-            왕복 동일
-          </label>
           <div class="button-row" style="margin-top: 10px;">
             <button class="button primary" id="addTravelButton" type="button">이동시간 추가</button>
             <button class="button" id="cancelTravelEditButton" type="button" hidden>수정 취소</button>
           </div>
+          <div id="travelError"></div>
 
           <div class="notice">
             주소 자동 계산은 카카오 REST API 키가 필요합니다. 키는 이 브라우저에만 저장됩니다.
@@ -2389,9 +2846,12 @@
       const COLOR_THEME_STORAGE = "escape-chain-color-theme-v1";
       const SEARCH_LIMIT = 30000;
       const FALLBACK_COLOR_THEME = "glass";
+      const HIDDEN_COLOR_THEMES = ["vaporwave", "casefile"];
       const COLOR_THEMES = {
         glass: "#dfeaff",
+        danpyeonseon: "#080604",
         vaporwave: "#16092b",
+        slasher: "#090202",
         arcade: "#05060d",
         win98: "#008080",
         casefile: "#d7bf83",
@@ -2444,6 +2904,7 @@
         storeName: document.querySelector("#storeName"),
         storeArea: document.querySelector("#storeArea"),
         storeAddress: document.querySelector("#storeAddress"),
+        storeLink: document.querySelector("#storeLink"),
         storeRows: document.querySelector("#storeRows"),
         addStoreButton: document.querySelector("#addStoreButton"),
         cancelStoreEditButton: document.querySelector("#cancelStoreEditButton"),
@@ -2454,15 +2915,14 @@
         themeRows: document.querySelector("#themeRows"),
         addThemeButton: document.querySelector("#addThemeButton"),
         cancelThemeEditButton: document.querySelector("#cancelThemeEditButton"),
-        selectAllThemesButton: document.querySelector("#selectAllThemesButton"),
-        clearThemesButton: document.querySelector("#clearThemesButton"),
+        themeBulkToggle: document.querySelector("#themeBulkToggle"),
         travelFrom: document.querySelector("#travelFrom"),
         travelTo: document.querySelector("#travelTo"),
         travelMinutes: document.querySelector("#travelMinutes"),
-        travelBothWays: document.querySelector("#travelBothWays"),
         travelRows: document.querySelector("#travelRows"),
         addTravelButton: document.querySelector("#addTravelButton"),
         cancelTravelEditButton: document.querySelector("#cancelTravelEditButton"),
+        travelError: document.querySelector("#travelError"),
         kakaoRestKey: document.querySelector("#kakaoRestKey"),
         autoTravelButton: document.querySelector("#autoTravelButton"),
         autoTravelStatus: document.querySelector("#autoTravelStatus"),
@@ -2519,6 +2979,7 @@
             name: String(store.name),
             area: String(store.area || ""),
             address: String(store.address || ""),
+            link: String(store.link || ""),
             x: store.x == null ? null : Number(store.x),
             y: store.y == null ? null : Number(store.y),
             geocodeAddress: String(store.geocodeAddress || "")
@@ -2646,7 +3107,9 @@
 
       function applyColorTheme(themeName, shouldPersist = true) {
         const savedTheme = ["y2k", "bubble", "scrapbook", "comic"].includes(themeName) ? FALLBACK_COLOR_THEME : themeName;
-        const theme = Object.prototype.hasOwnProperty.call(COLOR_THEMES, savedTheme) ? savedTheme : FALLBACK_COLOR_THEME;
+        const theme = Object.prototype.hasOwnProperty.call(COLOR_THEMES, savedTheme) && !HIDDEN_COLOR_THEMES.includes(savedTheme)
+          ? savedTheme
+          : FALLBACK_COLOR_THEME;
         if (document.documentElement) {
           document.documentElement.dataset.theme = theme;
         }
@@ -2683,6 +3146,7 @@
         const slotCount = data.themes.reduce((sum, theme) => sum + theme.slots.length, 0);
         const selectedCount = getSelectedThemeIds().size;
         els.dataCount.textContent = `${data.themes.length}개 테마 중 ${selectedCount}개 선택 · ${slotCount}개 시간`;
+        syncThemeBulkToggle();
       }
 
       function renderSettings() {
@@ -2735,6 +3199,14 @@
         }
       }
 
+      function syncThemeBulkToggle() {
+        const total = data.themes.length;
+        const selectedCount = getSelectedThemeIds().size;
+        els.themeBulkToggle.checked = total > 0 && selectedCount === total;
+        els.themeBulkToggle.indeterminate = selectedCount > 0 && selectedCount < total;
+        els.themeBulkToggle.disabled = total === 0;
+      }
+
       function renderStoreOptions() {
         const selectedThemeStore = els.themeStore.value;
         const selectedTravelFrom = els.travelFrom.value;
@@ -2756,21 +3228,28 @@
 
       function renderStores() {
         if (data.stores.length === 0) {
-          els.storeRows.innerHTML = `<tr><td colspan="5">먼저 방문할 매장을 추가하세요.</td></tr>`;
+          els.storeRows.innerHTML = `<tr><td colspan="6">먼저 방문할 매장을 추가하세요.</td></tr>`;
           return;
         }
 
         els.storeRows.innerHTML = data.stores.map((store) => {
           const count = data.themes.filter((theme) => theme.storeId === store.id).length;
+          const href = linkHref(store.link);
+          const linkCell = href
+            ? `<a class="text-link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">링크 열기</a>`
+            : "-";
           return `
             <tr>
               <td data-label="매장">${escapeHtml(store.name)}</td>
               <td data-label="지역">${escapeHtml(store.area || "-")}</td>
               <td data-label="주소">${escapeHtml(store.address || "-")}</td>
+              <td data-label="링크">${linkCell}</td>
               <td data-label="테마 수">${count}</td>
               <td data-label="관리">
-                <button class="mini-button" data-edit-store="${escapeHtml(store.id)}" type="button">수정</button>
-                <button class="mini-button danger" data-delete-store="${escapeHtml(store.id)}" type="button">삭제</button>
+                <span class="table-actions">
+                  <button class="mini-button" data-edit-store="${escapeHtml(store.id)}" type="button">수정</button>
+                  <button class="mini-button danger" data-delete-store="${escapeHtml(store.id)}" type="button">삭제</button>
+                </span>
               </td>
             </tr>
           `;
@@ -2792,8 +3271,10 @@
             <td data-label="소요">${theme.duration}분</td>
             <td data-label="시작시간">${theme.slots.map(escapeHtml).join(", ")}</td>
             <td data-label="관리">
-              <button class="mini-button" data-edit-theme="${escapeHtml(theme.id)}" type="button">수정</button>
-              <button class="mini-button danger" data-delete-theme="${escapeHtml(theme.id)}" type="button">삭제</button>
+              <span class="table-actions">
+                <button class="mini-button" data-edit-theme="${escapeHtml(theme.id)}" type="button">수정</button>
+                <button class="mini-button danger" data-delete-theme="${escapeHtml(theme.id)}" type="button">삭제</button>
+              </span>
             </td>
           </tr>
         `).join("");
@@ -2835,8 +3316,10 @@
             <td data-label="도착">${escapeHtml(storeName(item.toStoreId))}</td>
             <td data-label="이동">${item.minutes}분</td>
             <td data-label="관리">
-              <button class="mini-button" data-edit-travel="${escapeHtml(item.fromStoreId)}|${escapeHtml(item.toStoreId)}" type="button">수정</button>
-              <button class="mini-button danger" data-delete-travel="${escapeHtml(item.fromStoreId)}|${escapeHtml(item.toStoreId)}" type="button">삭제</button>
+              <span class="table-actions">
+                <button class="mini-button" data-edit-travel="${escapeHtml(item.fromStoreId)}|${escapeHtml(item.toStoreId)}" type="button">수정</button>
+                <button class="mini-button danger" data-delete-travel="${escapeHtml(item.fromStoreId)}|${escapeHtml(item.toStoreId)}" type="button">삭제</button>
+              </span>
             </td>
           </tr>
         `).join("");
@@ -2849,6 +3332,14 @@
           .replaceAll(">", "&gt;")
           .replaceAll('"', "&quot;")
           .replaceAll("'", "&#039;");
+      }
+
+      function linkHref(value) {
+        const text = String(value || "").trim();
+        if (!text) {
+          return "";
+        }
+        return /^https?:\/\//i.test(text) ? text : `https://${text}`;
       }
 
       function excelText(value) {
@@ -3158,6 +3649,7 @@
         els.storeName.value = "";
         els.storeArea.value = "";
         els.storeAddress.value = "";
+        els.storeLink.value = "";
         renderEditState();
       }
 
@@ -3172,7 +3664,7 @@
       function resetTravelForm() {
         editingTravelPair = null;
         els.travelMinutes.value = "15";
-        els.travelBothWays.checked = true;
+        clearError(els.travelError);
         renderEditState();
       }
 
@@ -3231,6 +3723,7 @@
         const name = els.storeName.value.trim();
         const area = els.storeArea.value.trim();
         const address = els.storeAddress.value.trim();
+        const link = els.storeLink.value.trim();
         if (!name) {
           els.storeName.focus();
           return;
@@ -3243,6 +3736,7 @@
             store.name = name;
             store.area = area;
             store.address = address;
+            store.link = link;
             if (addressChanged) {
               store.x = null;
               store.y = null;
@@ -3250,7 +3744,7 @@
             }
           }
         } else {
-          data.stores.push({ id: makeId("store"), name, area, address, x: null, y: null, geocodeAddress: "" });
+          data.stores.push({ id: makeId("store"), name, area, address, link, x: null, y: null, geocodeAddress: "" });
         }
 
         resetStoreForm();
@@ -3268,6 +3762,7 @@
         els.storeName.value = store.name;
         els.storeArea.value = store.area || "";
         els.storeAddress.value = store.address || "";
+        els.storeLink.value = store.link || "";
         renderEditState();
         els.storeName.focus();
       }
@@ -3472,15 +3967,40 @@
         const to = els.travelTo.value;
         const minutes = toNonNegativeInt(els.travelMinutes.value, 0);
 
+        if (from === to) {
+          showError(els.travelError, "같은 매장은 이동시간을 설정할 수 없습니다.");
+          return;
+        }
+
+        const editingPairs = new Set();
         if (editingTravelPair) {
           const [oldFrom, oldTo] = editingTravelPair.split("|");
-          data.travelTimes = data.travelTimes.filter((item) => item.fromStoreId !== oldFrom || item.toStoreId !== oldTo);
+          editingPairs.add(`${oldFrom}|${oldTo}`);
+          editingPairs.add(`${oldTo}|${oldFrom}`);
+        }
+
+        const alreadyRegistered = data.travelTimes.some((item) => {
+          const key = `${item.fromStoreId}|${item.toStoreId}`;
+          const sameRoute = item.fromStoreId === from && item.toStoreId === to;
+          const reverseRoute = item.fromStoreId === to && item.toStoreId === from;
+          return (sameRoute || reverseRoute) && !editingPairs.has(key);
+        });
+
+        if (alreadyRegistered && !window.confirm("이미 등록된 이동시간입니다. 업데이트 하시겠습니까?")) {
+          return;
+        }
+
+        if (editingTravelPair) {
+          const [oldFrom, oldTo] = editingTravelPair.split("|");
+          data.travelTimes = data.travelTimes.filter((item) => {
+            const isOldForward = item.fromStoreId === oldFrom && item.toStoreId === oldTo;
+            const isOldReverse = item.fromStoreId === oldTo && item.toStoreId === oldFrom;
+            return !isOldForward && !isOldReverse;
+          });
         }
 
         upsertTravel(from, to, minutes);
-        if (els.travelBothWays.checked) {
-          upsertTravel(to, from, minutes);
-        }
+        upsertTravel(to, from, minutes);
         resetTravelForm();
         saveData();
         render();
@@ -3494,10 +4014,10 @@
         }
 
         editingTravelPair = pair;
+        clearError(els.travelError);
         els.travelFrom.value = travel.fromStoreId;
         els.travelTo.value = travel.toStoreId;
         els.travelMinutes.value = travel.minutes;
-        els.travelBothWays.checked = false;
         renderEditState();
         els.travelMinutes.focus();
       }
@@ -3856,20 +4376,17 @@
       els.cancelStoreEditButton.addEventListener("click", resetStoreForm);
       els.addThemeButton.addEventListener("click", saveTheme);
       els.cancelThemeEditButton.addEventListener("click", resetThemeForm);
-      els.selectAllThemesButton.addEventListener("click", () => {
-        setSelectedThemeIds(data.themes.map((theme) => theme.id));
-        saveData();
-        render();
-        generateSchedules();
-      });
-      els.clearThemesButton.addEventListener("click", () => {
-        setSelectedThemeIds([]);
+      els.themeBulkToggle.addEventListener("change", () => {
+        setSelectedThemeIds(els.themeBulkToggle.checked ? data.themes.map((theme) => theme.id) : []);
         saveData();
         render();
         generateSchedules();
       });
       els.addTravelButton.addEventListener("click", saveTravel);
       els.cancelTravelEditButton.addEventListener("click", resetTravelForm);
+      [els.travelFrom, els.travelTo].forEach((select) => {
+        select.addEventListener("change", () => clearError(els.travelError));
+      });
       els.autoTravelButton.addEventListener("click", autoFillTravelTimes);
       els.exportResultsButton.addEventListener("click", exportResultsToExcel);
       els.generateButton.addEventListener("click", generateSchedules);
@@ -3961,7 +4478,7 @@
         importBackupFile(els.backupFileInput.files[0]);
       });
 
-      [els.storeName, els.storeArea, els.storeAddress].forEach((input) => {
+      [els.storeName, els.storeArea, els.storeAddress, els.storeLink].forEach((input) => {
         input.addEventListener("keydown", (event) => {
           if (event.key === "Enter") {
             saveStore();
