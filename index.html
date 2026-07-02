@@ -3,9 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#c8e9ff">
+  <meta name="theme-color" content="#dfeaff">
   <title>서울 온 김에 연방 해야지</title>
   <style>
+    @font-face {
+      font-family: "Escape Arcade";
+      src: url("fonts/MonaS12.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Escape Glass";
+      src: url("fonts/NEXON-Lv1-Gothic.otf") format("opentype");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Escape Win98";
+      src: url("fonts/DungGeunMo.woff2") format("woff2");
+      font-display: swap;
+    }
+
     :root {
       color-scheme: light;
       --bg: #f2f5f7;
@@ -46,50 +64,6 @@
       --panel-header-bg: var(--faint);
       --section-ink: #1e3a8a;
       --texture: none;
-    }
-
-    :root[data-theme="bubble"] {
-      --bg: #c8e9ff;
-      --panel: #ffffff;
-      --line: #80b8ff;
-      --line-strong: #2c69d1;
-      --ink: #15245e;
-      --muted: #526098;
-      --faint: #eaf6ff;
-      --soft: #d9edff;
-      --input-bg: #f8fcff;
-      --bg-top: #f4fbff;
-      --teal: #006dff;
-      --teal-soft: rgba(0, 109, 255, 0.15);
-      --panel-header-bg: linear-gradient(180deg, #ffffff 0, #cae8ff 52%, #8fc8ff 100%);
-      --blue: #2d8cff;
-      --blue-soft: rgba(45, 140, 255, 0.15);
-      --orange: #ff5fc8;
-      --orange-soft: rgba(255, 95, 200, 0.14);
-      --orange-line: rgba(255, 95, 200, 0.38);
-      --orange-ink: #9d1671;
-      --success-soft: rgba(0, 191, 174, 0.14);
-      --success-ink: #007d76;
-      --danger-soft: rgba(255, 75, 119, 0.13);
-      --danger-line: rgba(255, 75, 119, 0.36);
-      --rose: #d11162;
-      --button-ink-on-color: #ffffff;
-      --row-line: #cae3ff;
-      --shadow: 0 18px 36px rgba(32, 102, 214, 0.22), inset 0 1px 0 rgba(255,255,255,0.9);
-      --shadow-soft: 0 10px 22px rgba(32, 102, 214, 0.16);
-      --font-main: "Segoe UI Rounded", "Arial Rounded MT Bold", "Aptos Rounded", "Cafe24Ssurround", "Cafe24 써라운드", "Jua", "BM JUA", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
-      --font-display: "Arial Rounded MT Bold", "Segoe UI Rounded", "Aptos Rounded", "Cafe24Ssurround", "Cafe24 써라운드", "Jua", "BM JUA", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
-      --font-ui: "Segoe UI Rounded", "Aptos Rounded", "Arial Rounded MT Bold", "Cafe24Ssurround", "Cafe24 써라운드", "Jua", "BM JUA", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
-      --panel-radius: 8px;
-      --control-radius: 999px;
-      --small-radius: 6px;
-      --border-size: 1px;
-      --button-shadow: inset 0 1px 0 rgba(255,255,255,0.82), 0 7px 16px rgba(0, 109, 255, 0.18);
-      --section-ink: #1941a5;
-      --texture:
-        radial-gradient(circle at 14% 16%, rgba(255,255,255,0.9) 0 2px, transparent 3px),
-        radial-gradient(circle at 78% 10%, rgba(255,95,200,0.42) 0 2px, transparent 3px),
-        linear-gradient(135deg, rgba(255,255,255,0.45), rgba(55,160,255,0.14) 48%, rgba(255,95,200,0.14));
     }
 
     :root[data-theme="vaporwave"] {
@@ -168,9 +142,9 @@
       --row-line: #242b4d;
       --shadow: 0 0 0 2px rgba(0,229,255,0.35), 0 0 28px rgba(255,46,209,0.22), 0 18px 36px rgba(0,0,0,0.46);
       --shadow-soft: 0 0 0 1px rgba(0,229,255,0.3), 0 0 18px rgba(0,245,212,0.14);
-      --font-main: "Cascadia Mono", "Lucida Console", Consolas, "D2Coding", "Malgun Gothic", monospace;
-      --font-display: Impact, "Arial Black", "Cascadia Mono", "Malgun Gothic", sans-serif;
-      --font-ui: "Cascadia Mono", "Lucida Console", Consolas, "D2Coding", "Malgun Gothic", monospace;
+      --font-main: "Escape Arcade", "MonaS12", "Cascadia Mono", "Lucida Console", Consolas, "D2Coding", "Malgun Gothic", monospace;
+      --font-display: "Escape Arcade", "MonaS12", Impact, "Arial Black", "Cascadia Mono", "Malgun Gothic", sans-serif;
+      --font-ui: "Escape Arcade", "MonaS12", "Cascadia Mono", "Lucida Console", Consolas, "D2Coding", "Malgun Gothic", monospace;
       --panel-radius: 4px;
       --control-radius: 3px;
       --small-radius: 2px;
@@ -212,9 +186,9 @@
       --row-line: rgba(86, 108, 150, 0.16);
       --shadow: 0 20px 46px rgba(70, 95, 140, 0.24), inset 0 1px 0 rgba(255,255,255,0.72);
       --shadow-soft: 0 12px 26px rgba(70, 95, 140, 0.16), inset 0 1px 0 rgba(255,255,255,0.65);
-      --font-main: "SF Pro Display", "Segoe UI Variable", "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
-      --font-display: "Segoe UI Variable Display", "SF Pro Display", "Segoe UI", "Malgun Gothic", sans-serif;
-      --font-ui: "Segoe UI Variable Text", "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+      --font-main: "Escape Glass", "NEXON Lv1 Gothic", "SF Pro Display", "Segoe UI Variable", "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+      --font-display: "Escape Glass", "NEXON Lv1 Gothic", "Segoe UI Variable Display", "SF Pro Display", "Segoe UI", "Malgun Gothic", sans-serif;
+      --font-ui: "Escape Glass", "NEXON Lv1 Gothic", "Segoe UI Variable Text", "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
       --panel-radius: 8px;
       --control-radius: 8px;
       --small-radius: 6px;
@@ -256,9 +230,9 @@
       --row-line: #a0a0a0;
       --shadow: inset -2px -2px #404040, inset 2px 2px #ffffff;
       --shadow-soft: inset -1px -1px #404040, inset 1px 1px #ffffff;
-      --font-main: Tahoma, "Gulim", "굴림", "MS Sans Serif", sans-serif;
-      --font-display: Tahoma, "Gulim", "굴림", "MS Sans Serif", sans-serif;
-      --font-ui: Tahoma, "Gulim", "굴림", "MS Sans Serif", sans-serif;
+      --font-main: "Escape Win98", "DungGeunMo", Tahoma, "Gulim", "굴림", "MS Sans Serif", sans-serif;
+      --font-display: "Escape Win98", "DungGeunMo", Tahoma, "Gulim", "굴림", "MS Sans Serif", sans-serif;
+      --font-ui: "Escape Win98", "DungGeunMo", Tahoma, "Gulim", "굴림", "MS Sans Serif", sans-serif;
       --panel-radius: 0;
       --control-radius: 0;
       --small-radius: 0;
@@ -310,93 +284,6 @@
       --texture:
         radial-gradient(circle at 20% 12%, rgba(96,165,250,0.12), transparent 26%),
         radial-gradient(circle at 78% 0%, rgba(56,189,248,0.1), transparent 20%);
-    }
-
-    :root[data-theme="scrapbook"] {
-      --bg: #f2dcc1;
-      --panel: #fff8df;
-      --line: #d89f80;
-      --line-strong: #9e5d42;
-      --ink: #3c2b21;
-      --muted: #7c5c4a;
-      --faint: #faecc5;
-      --soft: #f5dca8;
-      --input-bg: #fffbee;
-      --bg-top: #fff0ca;
-      --teal: #3f8f7d;
-      --teal-soft: rgba(63, 143, 125, 0.16);
-      --panel-header-bg: #ffe8a8;
-      --blue: #d86ba6;
-      --blue-soft: rgba(216, 107, 166, 0.15);
-      --orange: #d97935;
-      --orange-soft: rgba(217, 121, 53, 0.16);
-      --orange-line: rgba(217, 121, 53, 0.4);
-      --orange-ink: #86491d;
-      --success-soft: rgba(85, 145, 84, 0.15);
-      --success-ink: #426f3c;
-      --danger-soft: rgba(190, 75, 95, 0.14);
-      --danger-line: rgba(190, 75, 95, 0.34);
-      --rose: #a73e58;
-      --button-ink-on-color: #fffaf0;
-      --row-line: rgba(158, 93, 66, 0.2);
-      --shadow: 6px 8px 0 rgba(121, 74, 48, 0.16), 0 18px 34px rgba(121, 74, 48, 0.12);
-      --shadow-soft: 3px 4px 0 rgba(121, 74, 48, 0.14);
-      --font-main: "Segoe Print", "Nanum Pen Script", "나눔손글씨 펜", "Comic Sans MS", "Apple SD Gothic Neo", "Malgun Gothic", cursive;
-      --font-display: "Segoe Print", "Nanum Brush Script", "나눔손글씨 붓", "Comic Sans MS", "Malgun Gothic", cursive;
-      --font-ui: "Comic Sans MS", "Segoe Print", "Apple SD Gothic Neo", "Malgun Gothic", cursive;
-      --panel-radius: 5px;
-      --control-radius: 6px;
-      --small-radius: 4px;
-      --border-size: 1px;
-      --button-shadow: 2px 3px 0 rgba(121, 74, 48, 0.2);
-      --section-ink: #633f2b;
-      --texture:
-        linear-gradient(90deg, rgba(158,93,66,0.06) 1px, transparent 1px),
-        linear-gradient(rgba(158,93,66,0.05) 1px, transparent 1px),
-        radial-gradient(circle at 18% 14%, rgba(216,107,166,0.18), transparent 16%);
-    }
-
-    :root[data-theme="comic"] {
-      --bg: #fffdf0;
-      --panel: #ffffff;
-      --line: #111111;
-      --line-strong: #111111;
-      --ink: #111111;
-      --muted: #4a4a4a;
-      --faint: #fff2a8;
-      --soft: #e8f4ff;
-      --input-bg: #ffffff;
-      --bg-top: #fff8cf;
-      --teal: #0057ff;
-      --teal-soft: rgba(0, 87, 255, 0.13);
-      --panel-header-bg: #ffe35c;
-      --blue: #ff3b30;
-      --blue-soft: rgba(255, 59, 48, 0.12);
-      --orange: #ffb000;
-      --orange-soft: rgba(255, 176, 0, 0.16);
-      --orange-line: #111111;
-      --orange-ink: #111111;
-      --success-soft: #d9ffd6;
-      --success-ink: #0b6b1f;
-      --danger-soft: #ffe2e2;
-      --danger-line: #111111;
-      --rose: #e6002d;
-      --button-ink-on-color: #ffffff;
-      --row-line: #111111;
-      --shadow: 6px 6px 0 #111111;
-      --shadow-soft: 4px 4px 0 #111111;
-      --font-main: "Comic Sans MS", "Comic Neue", "Arial Rounded MT Bold", "Apple SD Gothic Neo", "Malgun Gothic", cursive;
-      --font-display: "Arial Black", "Comic Sans MS", "Comic Neue", "Malgun Gothic", sans-serif;
-      --font-ui: "Comic Sans MS", "Comic Neue", "Apple SD Gothic Neo", "Malgun Gothic", cursive;
-      --panel-radius: 6px;
-      --control-radius: 6px;
-      --small-radius: 3px;
-      --border-size: 3px;
-      --button-shadow: 3px 3px 0 #111111;
-      --section-ink: #111111;
-      --texture:
-        radial-gradient(circle, rgba(17,17,17,0.14) 0 1px, transparent 1px),
-        linear-gradient(135deg, rgba(255,59,48,0.08), transparent 35%, rgba(0,87,255,0.08));
     }
 
     * {
@@ -1054,34 +941,6 @@
       font-weight: 800;
     }
 
-    :root[data-theme="bubble"] h1,
-    :root[data-theme="bubble"] .panel-title,
-    :root[data-theme="bubble"] .theme {
-      text-shadow: 0 1px 0 #ffffff, 0 0 12px rgba(0,109,255,0.24);
-      font-weight: 900;
-    }
-
-    :root[data-theme="bubble"] .panel,
-    :root[data-theme="bubble"] .guide-step,
-    :root[data-theme="bubble"] .candidate,
-    :root[data-theme="bubble"] .theme-choice {
-      background-image: linear-gradient(180deg, rgba(255,255,255,0.74), rgba(196,230,255,0.2));
-    }
-
-    :root[data-theme="bubble"] .button.primary,
-    :root[data-theme="bubble"] .button.blue {
-      border-color: rgba(255,255,255,0.72);
-      background: linear-gradient(180deg, #9fe8ff 0, #2d8cff 48%, #0059d6 100%);
-      box-shadow: inset 0 1px 0 #ffffff, 0 8px 18px rgba(0, 109, 255, 0.26);
-    }
-
-    :root[data-theme="bubble"] .button,
-    :root[data-theme="bubble"] .mini-button,
-    :root[data-theme="bubble"] input,
-    :root[data-theme="bubble"] select {
-      background-image: linear-gradient(180deg, rgba(255,255,255,0.78), rgba(205,232,255,0.5));
-    }
-
     :root[data-theme="vaporwave"] body {
       background-size: 38px 38px, 38px 38px, auto, auto, auto;
     }
@@ -1240,91 +1099,6 @@
       box-shadow: 0 0 0 3px rgba(96,165,250,0.16);
     }
 
-    :root[data-theme="scrapbook"] .panel,
-    :root[data-theme="scrapbook"] .guide-step,
-    :root[data-theme="scrapbook"] .candidate {
-      position: relative;
-      background-image: linear-gradient(180deg, rgba(255,255,255,0.38), rgba(217,121,53,0.05));
-    }
-
-    :root[data-theme="scrapbook"] .panel::before,
-    :root[data-theme="scrapbook"] .guide-step::before,
-    :root[data-theme="scrapbook"] .candidate::before {
-      content: "";
-      position: absolute;
-      top: 8px;
-      right: 18px;
-      width: 52px;
-      height: 16px;
-      border: 1px solid rgba(158,93,66,0.18);
-      background: repeating-linear-gradient(45deg, rgba(255,255,255,0.55) 0 6px, rgba(255,232,168,0.62) 6px 12px);
-      box-shadow: 1px 2px 0 rgba(121,74,48,0.1);
-      opacity: 0.82;
-      pointer-events: none;
-      transform: rotate(2deg);
-    }
-
-    :root[data-theme="scrapbook"] .guide-step::before {
-      left: 18px;
-      right: auto;
-      transform: rotate(-3deg);
-    }
-
-    :root[data-theme="scrapbook"] .button.primary,
-    :root[data-theme="scrapbook"] .button.blue {
-      border-color: rgba(121,74,48,0.28);
-      background: linear-gradient(180deg, #d86ba6, #3f8f7d);
-    }
-
-    :root[data-theme="scrapbook"] .step-number,
-    :root[data-theme="scrapbook"] .pill {
-      border: 1px solid rgba(121,74,48,0.16);
-      transform: rotate(-1deg);
-    }
-
-    :root[data-theme="comic"] body {
-      background-size: 14px 14px, auto;
-    }
-
-    :root[data-theme="comic"] h1,
-    :root[data-theme="comic"] .panel-title,
-    :root[data-theme="comic"] .theme {
-      text-shadow: 3px 3px 0 #ffe35c;
-      font-weight: 900;
-    }
-
-    :root[data-theme="comic"] .panel,
-    :root[data-theme="comic"] .guide-step,
-    :root[data-theme="comic"] .candidate,
-    :root[data-theme="comic"] .table-wrap,
-    :root[data-theme="comic"] input,
-    :root[data-theme="comic"] select {
-      box-shadow: var(--shadow-soft);
-    }
-
-    :root[data-theme="comic"] .panel {
-      box-shadow: var(--shadow);
-    }
-
-    :root[data-theme="comic"] .section-intro,
-    :root[data-theme="comic"] .notice,
-    :root[data-theme="comic"] .empty {
-      border-style: dashed;
-    }
-
-    :root[data-theme="comic"] .button.primary,
-    :root[data-theme="comic"] .button.blue {
-      background: #ff3b30;
-      color: #ffffff;
-    }
-
-    :root[data-theme="comic"] .button:active,
-    :root[data-theme="comic"] .mini-button:active,
-    :root[data-theme="comic"] .theme-choice:active {
-      transform: translate(2px, 2px);
-      box-shadow: 1px 1px 0 #111111;
-    }
-
     @media (max-width: 980px) {
       body {
         padding: 10px;
@@ -1401,9 +1175,9 @@
       </div>
       <div class="top-actions">
         <div class="theme-picker" aria-label="색 테마">
-          <button class="theme-choice active" data-color-theme="bubble" type="button" aria-pressed="true">
-            <span class="swatch" style="--swatch: linear-gradient(135deg, #ffffff, #2d8cff, #ff5fc8);"></span>
-            버블
+          <button class="theme-choice active" data-color-theme="glass" type="button" aria-pressed="true">
+            <span class="swatch" style="--swatch: linear-gradient(135deg, rgba(255,255,255,0.9), #7c3aed);"></span>
+            글래스
           </button>
           <button class="theme-choice" data-color-theme="vaporwave" type="button" aria-pressed="false">
             <span class="swatch" style="--swatch: linear-gradient(135deg, #ff6bd6, #6df7ff);"></span>
@@ -1413,10 +1187,6 @@
             <span class="swatch" style="--swatch: linear-gradient(135deg, #00f5d4, #ff2ed1, #ffdf3d);"></span>
             아케이드
           </button>
-          <button class="theme-choice" data-color-theme="glass" type="button" aria-pressed="false">
-            <span class="swatch" style="--swatch: linear-gradient(135deg, rgba(255,255,255,0.9), #7c3aed);"></span>
-            글래스
-          </button>
           <button class="theme-choice" data-color-theme="win98" type="button" aria-pressed="false">
             <span class="swatch" style="--swatch: linear-gradient(135deg, #008080, #c0c0c0, #000080);"></span>
             윈도우98
@@ -1424,14 +1194,6 @@
           <button class="theme-choice" data-color-theme="dark" type="button" aria-pressed="false">
             <span class="swatch" style="--swatch: linear-gradient(135deg, #070b12, #60a5fa);"></span>
             다크
-          </button>
-          <button class="theme-choice" data-color-theme="scrapbook" type="button" aria-pressed="false">
-            <span class="swatch" style="--swatch: linear-gradient(135deg, #fff8df, #d86ba6, #3f8f7d);"></span>
-            스크랩북
-          </button>
-          <button class="theme-choice" data-color-theme="comic" type="button" aria-pressed="false">
-            <span class="swatch" style="--swatch: linear-gradient(135deg, #ffe35c, #ff3b30, #0057ff);"></span>
-            코믹
           </button>
         </div>
         <span class="saved-badge" id="saveState">자동 저장됨</span>
@@ -1691,16 +1453,13 @@
       const KAKAO_KEY_STORAGE = "escape-chain-kakao-rest-key-v1";
       const COLOR_THEME_STORAGE = "escape-chain-color-theme-v1";
       const SEARCH_LIMIT = 30000;
-      const FALLBACK_COLOR_THEME = "bubble";
+      const FALLBACK_COLOR_THEME = "glass";
       const COLOR_THEMES = {
-        bubble: "#c8e9ff",
+        glass: "#dfeaff",
         vaporwave: "#16092b",
         arcade: "#05060d",
-        glass: "#dfeaff",
         win98: "#008080",
-        dark: "#070b12",
-        scrapbook: "#f2dcc1",
-        comic: "#fffdf0"
+        dark: "#070b12"
       };
 
       const sampleData = {
@@ -1945,7 +1704,7 @@
       }
 
       function applyColorTheme(themeName, shouldPersist = true) {
-        const savedTheme = themeName === "y2k" ? "bubble" : themeName;
+        const savedTheme = ["y2k", "bubble", "scrapbook", "comic"].includes(themeName) ? FALLBACK_COLOR_THEME : themeName;
         const theme = Object.prototype.hasOwnProperty.call(COLOR_THEMES, savedTheme) ? savedTheme : FALLBACK_COLOR_THEME;
         if (document.documentElement) {
           document.documentElement.dataset.theme = theme;
