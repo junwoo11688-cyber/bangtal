@@ -227,6 +227,47 @@
         linear-gradient(135deg, rgba(255,255,255,0.28), rgba(37,99,235,0.08));
     }
 
+    :root[data-theme="win98"] {
+      --bg: #008080;
+      --bg-top: #008080;
+      --panel: #c0c0c0;
+      --line: #808080;
+      --line-strong: #404040;
+      --ink: #000000;
+      --muted: #202020;
+      --faint: #d4d0c8;
+      --soft: #d4d0c8;
+      --input-bg: #ffffff;
+      --teal: #000080;
+      --teal-soft: #d4d0c8;
+      --panel-header-bg: #000080;
+      --blue: #000080;
+      --blue-soft: #d4d0c8;
+      --orange: #800000;
+      --orange-soft: #d4d0c8;
+      --orange-line: #808080;
+      --orange-ink: #000000;
+      --success-soft: #ffffff;
+      --success-ink: #008000;
+      --danger-soft: #ffffff;
+      --danger-line: #808080;
+      --rose: #800000;
+      --button-ink-on-color: #ffffff;
+      --row-line: #a0a0a0;
+      --shadow: inset -2px -2px #404040, inset 2px 2px #ffffff;
+      --shadow-soft: inset -1px -1px #404040, inset 1px 1px #ffffff;
+      --font-main: Tahoma, "Gulim", "굴림", "MS Sans Serif", sans-serif;
+      --font-display: Tahoma, "Gulim", "굴림", "MS Sans Serif", sans-serif;
+      --font-ui: Tahoma, "Gulim", "굴림", "MS Sans Serif", sans-serif;
+      --panel-radius: 0;
+      --control-radius: 0;
+      --small-radius: 0;
+      --border-size: 2px;
+      --button-shadow: inset -2px -2px #404040, inset 2px 2px #ffffff;
+      --section-ink: #000000;
+      --texture: none;
+    }
+
     :root[data-theme="dark"] {
       color-scheme: dark;
       --bg: #070b12;
@@ -822,7 +863,7 @@
 
     .settings {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 10px;
       padding: 14px;
       border-bottom: var(--border-size) solid var(--line);
@@ -1131,6 +1172,51 @@
       -webkit-backdrop-filter: blur(12px);
     }
 
+    :root[data-theme="win98"] .panel-header {
+      color: #ffffff;
+      box-shadow: inset -1px -1px #000000, inset 1px 1px #1084d0;
+    }
+
+    :root[data-theme="win98"] h1,
+    :root[data-theme="win98"] .panel-title {
+      font-weight: 700;
+    }
+
+    :root[data-theme="win98"] .panel-description {
+      color: #e6ecff;
+    }
+
+    :root[data-theme="win98"] .button,
+    :root[data-theme="win98"] .mini-button,
+    :root[data-theme="win98"] .theme-choice {
+      border-color: #808080;
+      background: #c0c0c0;
+      color: #000000;
+    }
+
+    :root[data-theme="win98"] .button.primary,
+    :root[data-theme="win98"] .button.blue {
+      background: #000080;
+      color: #ffffff;
+    }
+
+    :root[data-theme="win98"] .button:active,
+    :root[data-theme="win98"] .mini-button:active,
+    :root[data-theme="win98"] .theme-choice:active {
+      box-shadow: inset 2px 2px #404040, inset -2px -2px #ffffff;
+      transform: none;
+    }
+
+    :root[data-theme="win98"] input,
+    :root[data-theme="win98"] select,
+    :root[data-theme="win98"] .table-wrap {
+      box-shadow: inset 2px 2px #404040, inset -2px -2px #ffffff;
+    }
+
+    :root[data-theme="win98"] .tab.active {
+      border-bottom-color: #c0c0c0;
+    }
+
     :root[data-theme="dark"] h1,
     :root[data-theme="dark"] .panel-title,
     :root[data-theme="dark"] .theme {
@@ -1330,6 +1416,10 @@
           <button class="theme-choice" data-color-theme="glass" type="button" aria-pressed="false">
             <span class="swatch" style="--swatch: linear-gradient(135deg, rgba(255,255,255,0.9), #7c3aed);"></span>
             글래스
+          </button>
+          <button class="theme-choice" data-color-theme="win98" type="button" aria-pressed="false">
+            <span class="swatch" style="--swatch: linear-gradient(135deg, #008080, #c0c0c0, #000080);"></span>
+            윈도우98
           </button>
           <button class="theme-choice" data-color-theme="dark" type="button" aria-pressed="false">
             <span class="swatch" style="--swatch: linear-gradient(135deg, #070b12, #60a5fa);"></span>
@@ -1554,7 +1644,7 @@
         <div class="panel-header">
           <div class="panel-heading">
             <h2 class="panel-title">시간표 만들기</h2>
-            <p class="panel-description">대기시간이 짧은 효율 좋은 후보가 먼저 보입니다.</p>
+            <p class="panel-description">시작 테마와 동선 조건에 맞춰 효율 좋은 후보가 먼저 보입니다.</p>
           </div>
           <span class="saved-badge" id="dataCount">0개 테마</span>
         </div>
@@ -1567,6 +1657,10 @@
           <div class="field">
             <label for="dayEnd">종료</label>
             <input id="dayEnd" value="24:00" inputmode="numeric">
+          </div>
+          <div class="field">
+            <label for="startTheme">시작 테마</label>
+            <select id="startTheme"></select>
           </div>
           <div class="field">
             <label for="maxResults">후보 수</label>
@@ -1603,6 +1697,7 @@
         vaporwave: "#16092b",
         arcade: "#05060d",
         glass: "#dfeaff",
+        win98: "#008080",
         dark: "#070b12",
         scrapbook: "#f2dcc1",
         comic: "#fffdf0"
@@ -1617,6 +1712,7 @@
           defaultTravel: 20,
           maxResults: 12,
           allowSameTheme: false,
+          startThemeId: "",
           selectedThemeIds: ["lost-key", "clock-room", "blue-door", "night-train"]
         },
         stores: [
@@ -1683,6 +1779,7 @@
         themeMeta: document.querySelector('meta[name="theme-color"]'),
         dayStart: document.querySelector("#dayStart"),
         dayEnd: document.querySelector("#dayEnd"),
+        startTheme: document.querySelector("#startTheme"),
         maxResults: document.querySelector("#maxResults"),
         exportResultsButton: document.querySelector("#exportResultsButton"),
         generateButton: document.querySelector("#generateButton"),
@@ -1747,6 +1844,9 @@
         } else {
           normalized.settings.selectedThemeIds = normalized.themes.map((theme) => theme.id);
         }
+        normalized.settings.startThemeId = normalized.settings.selectedThemeIds.includes(String(normalized.settings.startThemeId || ""))
+          ? String(normalized.settings.startThemeId)
+          : "";
 
         normalized.travelTimes = normalized.travelTimes
           .filter((item) => item && storeIds.has(item.fromStoreId) && storeIds.has(item.toStoreId) && item.fromStoreId !== item.toStoreId)
@@ -1830,6 +1930,11 @@
         return store ? store.name : "삭제된 매장";
       }
 
+      function themeName(themeId) {
+        const theme = data.themes.find((item) => item.id === themeId);
+        return theme ? theme.name : "삭제된 테마";
+      }
+
       function storeArea(storeId) {
         const store = data.stores.find((item) => item.id === storeId);
         return store ? store.area : "";
@@ -1874,12 +1979,24 @@
 
       function renderSettings() {
         const settings = { ...sampleData.settings, ...data.settings };
+        const selectedThemeIds = getSelectedThemeIds();
+        const startThemeId = selectedThemeIds.has(settings.startThemeId) ? settings.startThemeId : "";
+        const startThemeOptions = [
+          `<option value="">자동 선택</option>`,
+          ...data.themes
+            .filter((theme) => selectedThemeIds.has(theme.id))
+            .map((theme) => `<option value="${escapeHtml(theme.id)}">${escapeHtml(theme.name)} · ${escapeHtml(storeName(theme.storeId))}</option>`)
+        ];
         els.dayStart.value = settings.dayStart;
         els.dayEnd.value = settings.dayEnd;
+        els.startTheme.innerHTML = startThemeOptions.join("");
+        els.startTheme.value = startThemeId;
         els.maxResults.value = settings.maxResults;
       }
 
       function readSettings() {
+        const selectedThemeIds = Array.from(getSelectedThemeIds());
+        const startThemeId = selectedThemeIds.includes(els.startTheme.value) ? els.startTheme.value : "";
         return {
           dayStart: els.dayStart.value.trim() || sampleData.settings.dayStart,
           dayEnd: els.dayEnd.value.trim() || sampleData.settings.dayEnd,
@@ -1888,7 +2005,8 @@
           defaultTravel: sampleData.settings.defaultTravel,
           maxResults: toPositiveInt(els.maxResults.value, sampleData.settings.maxResults),
           allowSameTheme: sampleData.settings.allowSameTheme,
-          selectedThemeIds: Array.from(getSelectedThemeIds())
+          startThemeId,
+          selectedThemeIds
         };
       }
 
@@ -1904,6 +2022,9 @@
       function setSelectedThemeIds(ids) {
         const allThemeIds = new Set(data.themes.map((theme) => theme.id));
         data.settings.selectedThemeIds = ids.filter((id) => allThemeIds.has(id));
+        if (data.settings.startThemeId && !data.settings.selectedThemeIds.includes(data.settings.startThemeId)) {
+          data.settings.startThemeId = "";
+        }
       }
 
       function renderStoreOptions() {
@@ -2179,8 +2300,9 @@
           }));
         }
 
+        const startThemeText = settings.startThemeId ? `, 시작 ${themeName(settings.startThemeId)}` : "";
         addRow(padCells(["서울 온 김에 연방 해야지 결과", new Date().toLocaleString("ko-KR")], 3));
-        addRow(padCells(["조건", `${settings.dayStart}-${settings.dayEnd}, 후보 ${settings.maxResults}개`], 3));
+        addRow(padCells(["조건", `${settings.dayStart}-${settings.dayEnd}, 후보 ${settings.maxResults}개${startThemeText}`], 3));
         addRow([]);
 
         candidates.forEach((candidate, candidateIndex) => {
@@ -2828,6 +2950,7 @@
         const settings = data.settings;
         const maxThemes = Math.min(toPositiveInt(settings.maxThemes, 4), 10);
         const maxResults = Math.min(toPositiveInt(settings.maxResults, 12), 80);
+        const startThemeId = settings.startThemeId || "";
         let sessions;
 
         try {
@@ -2889,6 +3012,9 @@
 
         for (let index = 0; index < sessions.length; index += 1) {
           const session = sessions[index];
+          if (startThemeId && session.themeId !== startThemeId) {
+            continue;
+          }
           dfs(index, [session], new Set([session.themeId]));
           if (clipped) {
             break;
@@ -2905,13 +3031,14 @@
         if (candidates.length === 0) {
           lastGeneratedCandidates = [];
           els.summary.textContent = `${sessionCount}개 시간 중 연방 후보 0개`;
-          els.results.innerHTML = `<div class="empty">후보가 없습니다. 선택 테마를 늘리거나 이동시간을 낮춰보세요.</div>`;
+          els.results.innerHTML = `<div class="empty">후보가 없습니다. 선택 테마를 늘리거나 시작 테마, 이동시간을 조정해보세요.</div>`;
           return;
         }
 
         lastGeneratedCandidates = candidates;
         const maxCount = candidates[0].count;
-        els.summary.textContent = `${sessionCount}개 시간 중 ${candidates.length}개 후보 · 최대 ${maxCount}연방 · 동선 효율순`;
+        const startThemeText = data.settings.startThemeId ? ` · 시작 ${themeName(data.settings.startThemeId)}` : "";
+        els.summary.textContent = `${sessionCount}개 시간 중 ${candidates.length}개 후보 · 최대 ${maxCount}연방 · 동선 효율순${startThemeText}`;
         els.results.innerHTML = candidates.map((candidate, index) => renderCandidate(candidate, index)).join("");
 
         if (clipped) {
@@ -3016,7 +3143,7 @@
       els.exportResultsButton.addEventListener("click", exportResultsToExcel);
       els.generateButton.addEventListener("click", generateSchedules);
 
-      [els.dayStart, els.dayEnd, els.maxResults].forEach((input) => {
+      [els.dayStart, els.dayEnd, els.startTheme, els.maxResults].forEach((input) => {
         input.addEventListener("change", () => {
           data.settings = readSettings();
           saveData();
