@@ -829,6 +829,28 @@
       line-height: 1.35;
     }
 
+    .panel-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+      flex: 0 0 auto;
+    }
+
+    .panel-toggle {
+      min-width: 54px;
+      color: var(--ink);
+    }
+
+    .panel.is-collapsed .panel-header {
+      border-bottom: 0;
+    }
+
+    .panel.is-collapsed .panel-body {
+      display: none;
+    }
+
     .tabs {
       display: flex;
       gap: 6px;
@@ -1680,6 +1702,12 @@
       color: #d6cbb7;
     }
 
+    :root[data-theme="danpyeonseon"] .candidate-head .candidate-rank strong {
+      width: fit-content;
+      color: #fff9ed;
+      text-shadow: 2px 2px 0 #090706, 0 0 2px #090706;
+    }
+
     :root[data-theme="danpyeonseon"] .panel-title,
     :root[data-theme="danpyeonseon"] .theme,
     :root[data-theme="danpyeonseon"] .time {
@@ -2318,11 +2346,11 @@
         grid-template-columns: 1fr;
       }
 
-      .planner-panel {
-        order: -1;
+      .input-panel {
+        order: 0;
       }
 
-      .input-panel {
+      .planner-panel {
         order: 1;
       }
 
@@ -2388,7 +2416,8 @@
       }
 
       .panel-header > .button,
-      .panel-header > .pill {
+      .panel-header > .pill,
+      .panel-header > .panel-actions {
         align-self: flex-start;
       }
 
@@ -2600,14 +2629,18 @@
     </section>
 
     <div class="workspace">
-      <section class="panel input-panel">
+      <section class="panel input-panel" id="inputPanel">
         <div class="panel-header">
           <div class="panel-heading">
             <h2 class="panel-title">입력</h2>
             <p class="panel-description">샘플을 고쳐 쓰거나 새 매장과 테마를 추가하세요.</p>
           </div>
+          <div class="panel-actions">
+            <button class="mini-button panel-toggle" data-panel-toggle="inputPanel" aria-controls="inputPanelBody" aria-expanded="true" type="button">접기</button>
+          </div>
         </div>
 
+        <div class="panel-body" id="inputPanelBody">
         <nav class="tabs" aria-label="입력 탭">
           <button class="tab active" data-tab="stores" type="button">1 매장</button>
           <button class="tab" data-tab="themes" type="button">2 테마</button>
@@ -2784,17 +2817,22 @@
             <input id="backupFileInput" type="file" accept="application/json,.json" hidden>
           </div>
         </div>
+        </div>
       </section>
 
-      <section class="panel planner-panel">
+      <section class="panel planner-panel" id="plannerPanel">
         <div class="panel-header">
           <div class="panel-heading">
             <h2 class="panel-title">시간표 만들기</h2>
             <p class="panel-description">시작 테마와 동선 조건에 맞춰 효율 좋은 후보가 먼저 보입니다.</p>
           </div>
-          <span class="saved-badge" id="dataCount">0개 테마</span>
+          <div class="panel-actions">
+            <span class="saved-badge" id="dataCount">0개 테마</span>
+            <button class="mini-button panel-toggle" data-panel-toggle="plannerPanel" aria-controls="plannerPanelBody" aria-expanded="true" type="button">접기</button>
+          </div>
         </div>
 
+        <div class="panel-body" id="plannerPanelBody">
         <div class="settings">
           <div class="field">
             <label for="dayStart">시작</label>
@@ -2832,6 +2870,7 @@
 
         <div class="results" id="results">
           <div class="empty">샘플 데이터가 준비되어 있습니다. 시간표 생성을 누르면 후보가 표시됩니다.</div>
+        </div>
         </div>
       </section>
     </div>
@@ -2930,6 +2969,7 @@
         exportBackupButton: document.querySelector("#exportBackupButton"),
         importBackupButton: document.querySelector("#importBackupButton"),
         backupFileInput: document.querySelector("#backupFileInput"),
+        panelToggles: Array.from(document.querySelectorAll("[data-panel-toggle]")),
         themeButtons: Array.from(document.querySelectorAll("[data-color-theme]")),
         activeThemeName: document.querySelector("#activeThemeName"),
         activeThemeSwatch: document.querySelector("#activeThemeSwatch"),
@@ -3131,6 +3171,18 @@
         if (shouldPersist) {
           localStorage.setItem(COLOR_THEME_STORAGE, theme);
         }
+      }
+
+      function setPanelCollapsed(panelId, collapsed) {
+        const panel = document.getElementById(panelId);
+        const toggle = els.panelToggles.find((button) => button.dataset.panelToggle === panelId);
+        if (!panel || !toggle) {
+          return;
+        }
+
+        panel.classList.toggle("is-collapsed", collapsed);
+        toggle.textContent = collapsed ? "펼치기" : "접기";
+        toggle.setAttribute("aria-expanded", String(!collapsed));
       }
 
       function render() {
@@ -4369,6 +4421,18 @@
           if (els.themeMenu) {
             els.themeMenu.open = false;
           }
+        });
+      });
+
+      els.panelToggles.forEach((button) => {
+        button.addEventListener("click", () => {
+          const panelId = button.dataset.panelToggle;
+          const panel = document.getElementById(panelId);
+          if (!panel) {
+            return;
+          }
+
+          setPanelCollapsed(panelId, !panel.classList.contains("is-collapsed"));
         });
       });
 
